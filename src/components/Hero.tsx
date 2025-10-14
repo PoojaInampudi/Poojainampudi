@@ -1,12 +1,19 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Phone } from "lucide-react";
+import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
       style={{
         backgroundImage: `linear-gradient(rgba(220, 225, 232, 0.9), rgba(220, 225, 232, 0.95)), url(${heroBg})`,
         backgroundSize: 'cover',
@@ -14,6 +21,13 @@ const Hero = () => {
       }}
     >
       <div className="absolute inset-0 bg-[linear-gradient(var(--gradient-hero))] opacity-10" />
+      
+      {/* Animated particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float" style={{ top: '20%', left: '10%', animationDelay: '0s' }} />
+        <div className="absolute w-3 h-3 bg-accent/20 rounded-full animate-float" style={{ top: '60%', left: '80%', animationDelay: '2s' }} />
+        <div className="absolute w-2 h-2 bg-primary/20 rounded-full animate-float" style={{ top: '40%', right: '15%', animationDelay: '4s' }} />
+      </div>
       
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="flex flex-col items-center text-center gap-8 max-w-4xl mx-auto">
@@ -53,22 +67,22 @@ const Hero = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <Button
               asChild
-              className="bg-primary hover:bg-primary-dark text-primary-foreground shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+              size="lg"
+              className="bg-primary hover:bg-primary-dark text-primary-foreground shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-glow)] transition-all duration-300 hover:scale-105"
             >
               <a href="mailto:inampudipooja.work@gmail.com">
-                <Mail className="mr-2 h-4 w-4" />
-                Email Me
+                <Mail className="mr-2 h-5 w-5" />
+                Get In Touch
               </a>
             </Button>
             <Button
-              asChild
               variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300"
+              size="lg"
+              onClick={scrollToAbout}
+              className="border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
             >
-              <a href="tel:+18302257893">
-                <Phone className="mr-2 h-4 w-4" />
-                Call Me
-              </a>
+              View My Work
+              <ChevronDown className="ml-2 h-5 w-5" />
             </Button>
           </div>
 
@@ -101,6 +115,10 @@ const Hero = () => {
           50% {
             transform: translateY(-20px);
           }
+        }
+        
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
         }
       `}</style>
     </section>

@@ -69,7 +69,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section className="py-20 px-4 bg-muted/30" id="experience">
+    <section className="py-20 px-4 bg-muted/30 scroll-mt-16" id="experience">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">
           Professional Experience
