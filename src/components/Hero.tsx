@@ -41,9 +41,6 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center gap-10 max-w-5xl mx-auto">
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-3 mb-6">
-              <div className="inline-block px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-                <p className="text-sm font-semibold text-primary tracking-wider">FULL STACK ENGINEER</p>
-              </div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
                 <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-fade-in">
                   Pooja Inampudi
