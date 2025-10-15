@@ -67,38 +67,37 @@ const Hero = () => {
               </p>
             </div>
             
-              <div className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
-                📍 Austin, Texas
-              </div>
-              
-              {/* Social Links */}
-              <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
-                <a
-                  href="https://github.com/PoojaInampudi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://linkedin.com/in/poojainampudi"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-4 w-4" />
-                </a>
-                <a
-                  href="mailto:inampudipooja.work@gmail.com"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                  aria-label="Email"
-                >
-                  <Mail className="h-4 w-4" />
-                </a>
-              </div>
+            <div className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
+              📍 Austin, Texas
+            </div>
+            
+            {/* Social Links */}
+            <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+              <a
+                href="https://github.com/PoojaInampudi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+              <a
+                href="https://linkedin.com/in/poojainampudi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <a
+                href="mailto:inampudipooja.work@gmail.com"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
@@ -125,7 +124,6 @@ const Hero = () => {
               </span>
             </Button>
           </div>
-
         </div>
       </div>
 
