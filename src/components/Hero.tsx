@@ -13,14 +13,10 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
-      style={{
-        backgroundImage: `linear-gradient(rgba(220, 225, 232, 0.9), rgba(220, 225, 232, 0.95)), url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-background via-muted/30 to-background"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(var(--gradient-hero))] opacity-10" />
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTM2IDE0YzAtMy4zMTQgMi42ODYtNiA2LTZzNi0yLjY4NiA2LTYtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYtMi42ODYgNi02IDZ6TTAgMTRjMC0zLjMxNCAyLjY4Ni02IDYtNnM2LTIuNjg2IDYtNi0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNi0yLjY4NiA2LTYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-40" />
+      <div className="absolute inset-0 bg-[linear-gradient(var(--gradient-hero))]" />
       
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -38,37 +34,43 @@ const Hero = () => {
             }}
           >
             <div 
-              className="absolute inset-0 rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"
+              className="absolute -inset-1 rounded-full blur-3xl opacity-30 group-hover:opacity-50 transition-all duration-700"
               style={{ 
-                background: 'var(--gradient-primary)',
-                transform: 'scale(1.1)'
+                background: 'var(--gradient-accent)',
+                transform: 'scale(1.15)'
               }}
             />
+            <div className="absolute -inset-0.5 rounded-full bg-gradient-to-br from-primary via-accent to-primary-glow opacity-75 group-hover:opacity-100 transition-opacity duration-500" />
             <img
               src={profilePhoto}
-              alt="Pooja Inampudi"
-              className="relative w-48 h-48 rounded-full object-cover border-4 border-white shadow-[var(--shadow-lg)]"
+              alt="Pooja Inampudi - Salesforce Developer"
+              className="relative w-56 h-56 rounded-full object-cover border-[6px] border-card shadow-[var(--shadow-xl)] ring-2 ring-primary/20"
             />
           </div>
 
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-[linear-gradient(var(--gradient-primary))]">
-              Pooja Inampudi
-            </h1>
-            <p className="text-xl md:text-2xl text-secondary font-medium">
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <h1 className="text-6xl md:text-8xl font-bold tracking-tight">
+                <span className="bg-clip-text text-transparent bg-[linear-gradient(var(--gradient-accent))]">
+                  Pooja Inampudi
+                </span>
+              </h1>
+              <div className="h-1 w-32 mx-auto bg-[linear-gradient(var(--gradient-accent))] rounded-full" />
+            </div>
+            <p className="text-2xl md:text-3xl text-secondary font-semibold tracking-wide">
               Software Developer | Salesforce Specialist
             </p>
-            <p className="text-lg text-muted-foreground max-w-2xl">
-              Full Stack Engineer with expertise in Salesforce development, building scalable solutions 
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
+              Full Stack Engineer with expertise in Salesforce development, building scalable enterprise solutions 
               from concept to production. Specializing in CPQ, Health Cloud, and OmniStudio.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-5 justify-center">
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary-dark text-primary-foreground shadow-[var(--shadow-md)] hover:shadow-[var(--shadow-glow)] transition-all duration-300 hover:scale-105"
+              className="bg-[linear-gradient(var(--gradient-accent))] hover:opacity-90 text-primary-foreground shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] transition-all duration-500 hover:scale-105 text-base px-8 py-6 font-semibold"
             >
               <a href="mailto:inampudipooja.work@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
@@ -79,29 +81,31 @@ const Hero = () => {
               variant="outline"
               size="lg"
               onClick={scrollToAbout}
-              className="border-2 border-primary text-primary hover:bg-primary/10 transition-all duration-300 hover:scale-105"
+              className="border-2 border-primary bg-card/50 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-500 hover:scale-105 text-base px-8 py-6 font-semibold shadow-[var(--shadow-md)]"
             >
               View My Work
               <ChevronDown className="ml-2 h-5 w-5" />
             </Button>
           </div>
 
-          <div className="flex gap-4">
+          <div className="flex gap-5">
             <a
               href="https://github.com/PoojaInampudi"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center hover:border-primary hover:shadow-[var(--shadow-md)] transition-all duration-300"
+              className="w-14 h-14 rounded-full bg-card/80 backdrop-blur-sm border-2 border-border flex items-center justify-center hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-lg)] transition-all duration-500 hover:scale-110 group"
+              aria-label="Visit GitHub profile"
             >
-              <Github className="h-5 w-5 text-foreground" />
+              <Github className="h-6 w-6 text-foreground group-hover:text-primary-foreground transition-colors" />
             </a>
             <a
               href="https://linkedin.com/in/poojainampudi"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-12 h-12 rounded-full bg-card border-2 border-border flex items-center justify-center hover:border-primary hover:shadow-[var(--shadow-md)] transition-all duration-300"
+              className="w-14 h-14 rounded-full bg-card/80 backdrop-blur-sm border-2 border-border flex items-center justify-center hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[var(--shadow-lg)] transition-all duration-500 hover:scale-110 group"
+              aria-label="Visit LinkedIn profile"
             >
-              <Linkedin className="h-5 w-5 text-foreground" />
+              <Linkedin className="h-6 w-6 text-foreground group-hover:text-primary-foreground transition-colors" />
             </a>
           </div>
         </div>
