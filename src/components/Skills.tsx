@@ -1,11 +1,12 @@
-import { 
-  Cloud, Code2, Database, Wrench, Heart, Layers, Zap, 
-  Workflow, Bot, FileText, CloudCog, FileCode, Palette, Wind, 
-  Monitor, Server, Coffee, Package, Beaker, Webhook, Network, 
-  GitBranch, Cog, GitPullRequest, Play, Search, Component
-} from "lucide-react";
 import { motion } from "framer-motion";
 import type { ComponentType, SVGProps } from "react";
+import { 
+  SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss3, 
+  SiTailwindcss, SiReact, SiNodedotjs, SiPython, SiSharp, 
+  SiDotnet, SiFlask, SiDjango, SiAmazon, SiMongodb,
+  SiGit, SiBitbucket, SiJenkins
+} from "react-icons/si";
+import { Cloud, Code2, Database, Wrench, Workflow, Coffee } from "lucide-react";
 
 const skillCategories = [
   {
@@ -32,48 +33,48 @@ const skillCategories = [
 
 type Category = { title: string; icon: ComponentType<SVGProps<SVGSVGElement>>; skills: string[] };
 
-function getSkillIcon(skill: string): ComponentType<SVGProps<SVGSVGElement>> {
-  const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
-    "Salesforce CPQ": Cloud,
-    "Health Cloud": Heart,
-    "OmniStudio": Layers,
+function getSkillIcon(skill: string): ComponentType<any> {
+  const iconMap: Record<string, ComponentType<any>> = {
+    "Salesforce CPQ": SiSalesforce,
+    "Health Cloud": SiSalesforce,
+    "OmniStudio": SiSalesforce,
     "Apex": Code2,
-    "LWC": Zap,
+    "LWC": SiSalesforce,
     "SOQL": Database,
     "Flows": Workflow,
-    "Agent Force": Bot,
-    "Conga CPQ": FileText,
-    "Data Cloud": CloudCog,
-    "React.js": Component,
-    "JavaScript": FileCode,
-    "TypeScript": FileCode,
-    "HTML5": FileCode,
-    "CSS3": Palette,
-    "Tailwind CSS": Wind,
-    "Aura Components": Layers,
-    "Responsive Design": Monitor,
-    "Node.js": Server,
-    "Python": Code2,
+    "Agent Force": SiSalesforce,
+    "Conga CPQ": Cloud,
+    "Data Cloud": SiSalesforce,
+    "React.js": SiReact,
+    "JavaScript": SiJavascript,
+    "TypeScript": SiTypescript,
+    "HTML5": SiHtml5,
+    "CSS3": SiCss3,
+    "Tailwind CSS": SiTailwindcss,
+    "Aura Components": SiSalesforce,
+    "Responsive Design": SiReact,
+    "Node.js": SiNodedotjs,
+    "Python": SiPython,
     "Java": Coffee,
-    "C#": Code2,
-    ".NET": Package,
-    "Flask": Beaker,
-    "Django": Server,
-    "REST APIs": Webhook,
-    "SOAP APIs": Network,
-    "AWS (EC2, Lambda, S3)": Cloud,
-    "MongoDB": Database,
+    "C#": SiSharp,
+    ".NET": SiDotnet,
+    "Flask": SiFlask,
+    "Django": SiDjango,
+    "REST APIs": Cloud,
+    "SOAP APIs": Cloud,
+    "AWS (EC2, Lambda, S3)": SiAmazon,
+    "MongoDB": SiMongodb,
     "MS SQL": Database,
-    "Git": GitBranch,
-    "Bitbucket": GitBranch,
-    "Jenkins": Cog,
-    "CI/CD": GitPullRequest,
-    "Playwright": Play,
-    "BeautifulSoup": Code2,
-    "SERP API": Search,
+    "Git": SiGit,
+    "Bitbucket": SiBitbucket,
+    "Jenkins": SiJenkins,
+    "CI/CD": SiGit,
+    "Playwright": Code2,
+    "BeautifulSoup": SiPython,
+    "SERP API": Cloud,
     "IBM Cloud": Cloud,
   };
-  return iconMap[skill] || Code2;
+  return iconMap[skill] || Cloud;
 }
 
 export default function Skills() {
@@ -171,7 +172,7 @@ function SkillCard({ category, index }: { category: Category; index: number }) {
                 />
 
                 <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
-                  <SkillIcon className="w-5 h-5 text-white" />
+                  <SkillIcon size={20} color="white" />
                 </div>
               </motion.div>
             );
