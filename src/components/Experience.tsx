@@ -67,14 +67,97 @@ const experiences = [
   },
 ];
 
+const allSkills = {
+  salesforce: ["Salesforce CPQ", "Health Cloud", "OmniStudio", "Apex", "Lightning Web Components", "SOQL", "Flows", "Agent Force", "Conga CPQ", "Data Cloud", "Lightning Aura Components"],
+  frontend: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"],
+  backend: ["Node.js", "Python", "Java", "C#", ".NET", "Flask", "Django", "RESTful APIs", "SOAP APIs", "MongoDB", "MS SQL"],
+  cloud: ["AWS (EC2, Lambda, S3)", "IBM Cloud"],
+  tools: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup", "SERP API"],
+};
+
 const Experience = () => {
   return (
     <section className="py-20 px-4 bg-muted/30 scroll-mt-16" id="experience">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">
-          Professional Experience
+          Professional Experience & Skills
         </h2>
-        <div className="w-24 h-1 mx-auto mb-12 rounded-full bg-[linear-gradient(var(--gradient-primary))]" />
+        <div className="w-24 h-1 mx-auto mb-4 rounded-full bg-[linear-gradient(var(--gradient-primary))]" />
+        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+          Full-stack expertise across Salesforce ecosystem, modern web technologies, and cloud platforms
+        </p>
+
+        {/* Skills Overview */}
+        <Card className="p-6 mb-12 bg-[linear-gradient(var(--gradient-card))] border-2">
+          <h3 className="text-2xl font-bold text-center mb-6 text-secondary">Technical Skills</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div>
+              <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                Salesforce
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.salesforce.map((skill, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs bg-primary/5 border-primary/20">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                Frontend
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.frontend.map((skill, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs bg-primary/5 border-primary/20">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                Backend & Database
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.backend.map((skill, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs bg-primary/5 border-primary/20">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                Cloud Platforms
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.cloud.map((skill, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs bg-primary/5 border-primary/20">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+            <div className="md:col-span-2 lg:col-span-2">
+              <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
+                Tools & DevOps
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {allSkills.tools.map((skill, idx) => (
+                  <Badge key={idx} variant="outline" className="text-xs bg-primary/5 border-primary/20">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Card>
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (

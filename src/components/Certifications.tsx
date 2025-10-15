@@ -58,20 +58,27 @@ const Certifications = () => {
   return (
     <section className="py-20 px-4 bg-muted/30 scroll-mt-16" id="certifications">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">
-          Certifications
-        </h2>
-        <div className="w-24 h-1 mx-auto mb-6 rounded-full bg-[linear-gradient(var(--gradient-primary))]" />
-        <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Professional certifications demonstrating expertise in Salesforce platform development and cloud technologies
-        </p>
-
-        <div className="mb-12 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[var(--shadow-lg)]">
-          <img 
-            src={certificationsBanner} 
-            alt="Certification Badges - Salesforce and AWS Certifications" 
-            className="w-full h-auto"
-          />
+        <div className="text-center mb-16 space-y-6">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
+            <Award className="h-5 w-5 text-primary animate-pulse" />
+            <span className="text-sm font-semibold text-primary tracking-wider">PROFESSIONAL CREDENTIALS</span>
+          </div>
+          
+          <h2 className="text-5xl md:text-6xl font-bold text-secondary">
+            <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+              Certifications
+            </span>
+          </h2>
+          
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-0.5 w-20 bg-gradient-to-r from-transparent via-primary to-primary rounded-full" />
+            <div className="h-1 w-10 bg-primary rounded-full" />
+            <div className="h-0.5 w-20 bg-gradient-to-l from-transparent via-primary to-primary rounded-full" />
+          </div>
+          
+          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+            Industry-validated expertise in <span className="text-primary font-semibold">Salesforce</span> and <span className="text-primary font-semibold">AWS</span> cloud technologies
+          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
