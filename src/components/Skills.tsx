@@ -128,10 +128,10 @@ function FloatingCard({ category, index }: { category: Category; index: number }
       className="relative group"
     >
       {/* Gradient border wrapper */}
-      <div className={`absolute inset-0 rounded-[50px] bg-gradient-to-br ${styles.badgeGradient} opacity-60 blur-xl group-hover:opacity-100 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 rounded-[80px] bg-gradient-to-br ${styles.badgeGradient} opacity-60 blur-xl group-hover:opacity-100 transition-opacity duration-500`} />
       
       {/* Main card with organic shape */}
-      <div className={`relative p-8 rounded-[50px] ${styles.bg} backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden`}>
+      <div className={`relative p-8 rounded-[80px] ${styles.bg} backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden`}>
         {/* Animated gradient orbs */}
         <motion.div
           className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${styles.badgeGradient} opacity-20 blur-3xl`}
