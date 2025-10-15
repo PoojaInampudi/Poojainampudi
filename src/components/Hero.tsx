@@ -67,13 +67,42 @@ const Hero = () => {
               </p>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 <span>Available for opportunities</span>
               </div>
-              <div className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+              <div className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
                 📍 Austin, Texas
+              </div>
+              
+              {/* Social Links */}
+              <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border">
+                <a
+                  href="https://github.com/PoojaInampudi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+                <a
+                  href="https://linkedin.com/in/poojainampudi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a
+                  href="mailto:inampudipooja.work@gmail.com"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label="Email"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
               </div>
             </div>
           </div>
@@ -102,28 +131,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <a
-              href="https://github.com/PoojaInampudi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-12 h-12 rounded-xl bg-card/80 backdrop-blur-md border border-border/50 flex items-center justify-center hover:border-primary transition-all duration-300 hover:scale-110 overflow-hidden"
-              aria-label="Visit GitHub profile"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-300" />
-              <Github className="h-5 w-5 text-foreground group-hover:text-primary transition-colors relative z-10" />
-            </a>
-            <a
-              href="https://linkedin.com/in/poojainampudi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative w-12 h-12 rounded-xl bg-card/80 backdrop-blur-md border border-border/50 flex items-center justify-center hover:border-primary transition-all duration-300 hover:scale-110 overflow-hidden"
-              aria-label="Visit LinkedIn profile"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/10 group-hover:to-accent/10 transition-all duration-300" />
-              <Linkedin className="h-5 w-5 text-foreground group-hover:text-primary transition-colors relative z-10" />
-            </a>
-          </div>
         </div>
       </div>
 
