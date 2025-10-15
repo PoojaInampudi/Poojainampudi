@@ -1,6 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, Star } from "lucide-react";
-import certificationsBanner from "@/assets/certifications-banner.png";
+import { Award, Star } from "lucide-react";
 
 const certifications = [
   {
@@ -64,49 +63,25 @@ const Certifications = () => {
           </div>
         </div>
 
-        {/* Certification Image - Not Centered */}
-        <div className="mb-12 animate-fade-in">
-          <img 
-            src={certificationsBanner} 
-            alt="Professional Certifications" 
-            className="w-full max-w-4xl rounded-2xl shadow-2xl border-2 border-primary/20 hover:scale-105 transition-transform duration-500"
-          />
-        </div>
 
         {/* Certifications List */}
         <div className="space-y-6">
           {certifications.map((cert, index) => (
             <div
               key={index}
-              className="group relative p-6 rounded-xl bg-gradient-to-r from-muted/30 to-muted/10 border-2 border-primary/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]"
+              className="group p-6 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-300"
             >
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-start gap-3 mb-3">
-                    <Award className="h-6 w-6 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
-                    <div>
-                      <h3 className="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">
-                        {cert.name}
-                      </h3>
-                      <p className="text-muted-foreground text-sm mb-2">{cert.issuer}</p>
-                      <Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary">
-                        {cert.date}
-                      </Badge>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-3">
+                <Award className="h-6 w-6 text-primary flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                <div>
+                  <h3 className="text-xl font-bold text-secondary mb-2 group-hover:text-primary transition-colors">
+                    {cert.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-2">{cert.issuer}</p>
+                  <Badge variant="outline" className="bg-primary/5 border-primary/20 text-primary">
+                    {cert.date}
+                  </Badge>
                 </div>
-                
-                {cert.link && (
-                  <a
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary hover:text-primary-foreground text-primary font-semibold transition-all duration-300 hover:scale-105"
-                  >
-                    View Certificate
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                )}
               </div>
             </div>
           ))}

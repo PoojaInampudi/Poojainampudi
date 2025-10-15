@@ -1,4 +1,3 @@
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar } from "lucide-react";
 
@@ -136,8 +135,8 @@ const Experience = () => {
         </p>
 
         {/* Skills Overview */}
-        <Card className="p-6 mb-12 bg-[linear-gradient(var(--gradient-card))] border-2">
-          <h3 className="text-2xl font-bold text-center mb-6 text-secondary">Technical Skills</h3>
+        <div className="p-8 mb-12 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent">
+          <h3 className="text-2xl font-bold mb-6 text-secondary">Technical Skills</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div>
               <h4 className="text-sm font-semibold text-primary mb-3 flex items-center gap-2">
@@ -205,7 +204,7 @@ const Experience = () => {
               </div>
             </div>
           </div>
-        </Card>
+        </div>
 
         {/* Timeline Layout */}
         <div className="relative">
@@ -223,9 +222,9 @@ const Experience = () => {
                 {/* Timeline Dot */}
                 <div className="absolute left-4 md:left-1/2 w-4 h-4 -ml-[7px] rounded-full bg-primary border-4 border-background shadow-lg z-10 animate-pulse" />
                 
-                {/* Content Card */}
+                {/* Content */}
                 <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <Card className="p-6 md:p-8 hover:shadow-2xl transition-all duration-500 border-2 hover:border-primary/50 bg-[linear-gradient(var(--gradient-card))] hover:scale-105">
+                  <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
                     <div className="flex flex-col gap-4">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
@@ -267,7 +266,7 @@ const Experience = () => {
                         </ul>
                       </div>
                     </div>
-                  </Card>
+                  </div>
                 </div>
               </div>
             ))}
