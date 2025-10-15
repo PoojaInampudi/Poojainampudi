@@ -78,8 +78,15 @@ function getSkillIcon(skill: string): ComponentType<SVGProps<SVGSVGElement>> {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
+    <section
+      id="skills"
+      className="py-20 px-4 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,var(--primary)/8,transparent_60%)]"
+    >
+      {/* floating subtle orbs */}
+      <div className="absolute -top-20 -right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+      <div className="absolute -bottom-12 -left-12 w-56 h-56 bg-accent/10 rounded-full blur-3xl animate-pulse pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,11 +94,16 @@ export default function Skills() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-3">Technical Skills</h2>
-          <div className="w-20 h-1 mx-auto bg-primary rounded-full" />
+          <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-3">
+            Technical Skills
+          </h2>
+          <div className="w-28 h-1 mx-auto mb-6 rounded-full bg-gradient-to-r from-primary via-accent to-secondary" />
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A curated set of technologies and tools I use to build solutions — organized by area.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, i) => (
             <SkillCard key={i} category={category} index={i} />
           ))}
@@ -109,38 +121,62 @@ function SkillCard({ category, index }: { category: Category; index: number }) {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
-      className="bg-card border border-border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+      transition={{ duration: 0.45, delay: index * 0.08 }}
+      className="relative"
     >
-      <div className="flex items-center gap-3 mb-5">
-        <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-          <Icon className="h-6 w-6 text-primary" />
+      <div className="p-8 rounded-[2rem] bg-gradient-to-br from-background/60 via-background/30 to-background/10 border border-primary/20 hover:border-primary/60 hover:shadow-[0_0_40px_-10px_var(--primary)] backdrop-blur-md transition-all duration-500 overflow-hidden">
+        <div className="flex items-center gap-4 mb-6 relative z-10">
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+            <Icon className="h-8 w-8 text-primary" />
+          </div>
+          <div>
+            <h3 className="text-2xl font-extrabold text-secondary tracking-tight">
+              {category.title}
+            </h3>
+            <p className="text-xs text-muted-foreground mt-1">
+              Focused tools and frameworks
+            </p>
+          </div>
         </div>
-        <h3 className="text-xl font-bold text-secondary">{category.title}</h3>
-      </div>
 
-      <div className="flex flex-wrap gap-3">
-        {category.skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 + i * 0.03 }}
-            className="group/badge relative"
-          >
-            <div className="relative w-11 h-11 rounded-full bg-muted hover:bg-primary/20 flex items-center justify-center border border-border hover:border-primary transition-all duration-200 cursor-pointer">
-              {(() => {
-                const SkillIcon = getSkillIcon(skill);
-                return <SkillIcon className="w-5 h-5 text-muted-foreground group-hover/badge:text-primary transition-colors" />;
-              })()}
-              
-              <div className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-secondary text-white text-xs font-medium rounded opacity-0 group-hover/badge:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none z-10">
-                {skill}
-              </div>
-            </div>
-          </motion.div>
-        ))}
+        <div className="flex flex-wrap gap-3 relative z-10">
+          {category.skills.map((skill, i) => {
+            const SkillIcon = getSkillIcon(skill);
+            const isBottomRow = Math.floor(i / 6) >= 1; // show tooltip below for icons in 2nd+ rows
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 8 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.15 + i * 0.03 }}
+                whileHover={{ scale: 1.06, y: -6 }}
+                className="group relative w-14 h-14 flex items-center justify-center rounded-lg shadow-md cursor-pointer overflow-visible border border-transparent hover:border-primary transition-all duration-200"
+              >
+                {/* Tooltip: dynamically positioned */}
+                <div
+                  className={`absolute left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-white text-xs font-medium rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap pointer-events-none z-50 shadow-lg ${
+                    isBottomRow ? "top-[110%]" : "-top-10"
+                  }`}
+                >
+                  {skill}
+                </div>
+
+                <div
+                  className={`absolute inset-0 ${
+                    i % 2 === 0
+                      ? "bg-gradient-to-tr from-primary/40 to-primary/20"
+                      : "bg-gradient-to-tr from-accent/40 to-accent/20"
+                  } opacity-90 rounded-lg`}
+                />
+
+                <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
+                  <SkillIcon className="w-5 h-5 text-white" />
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </motion.div>
   );
