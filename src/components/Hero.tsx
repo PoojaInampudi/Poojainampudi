@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const scrollToAbout = () => {
