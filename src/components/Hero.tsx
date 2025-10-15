@@ -52,14 +52,13 @@ const Hero = () => {
                 <div className="h-0.5 w-16 bg-gradient-to-l from-transparent via-primary to-primary rounded-full" />
               </div>
             </div>
-            
             <div className="space-y-4 mb-8">
               <p className="text-2xl md:text-4xl font-bold text-secondary">
                 Software Developer <span className="text-primary">|</span> Salesforce Specialist
               </p>
               <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed px-4">
                 Architecting scalable enterprise solutions from concept to production. 
-                <span className="text-secondary font-semibold"> Expert in Salesforce CPQ, Health Cloud, OmniStudio</span>, 
+                <span className="text-secondary font-semibold"> Expert in Salesforce CPQ, OmniStudio</span>, 
                 and full-stack development with cloud technologies.
               </p>
             </div>
