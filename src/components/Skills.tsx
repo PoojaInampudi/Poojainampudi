@@ -48,20 +48,41 @@ const colorStyles = {
 
 export default function Skills() {
   return (
-    <section className="py-20 px-4 scroll-mt-16 bg-gradient-to-b from-white/80 to-white/10">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">Technical Skills</h2>
-        <div className="w-28 h-1 mx-auto mb-12 rounded-full bg-[linear-gradient(var(--gradient-primary))] relative">
-          <motion.div
-            className="absolute inset-0 rounded-full opacity-30"
-            animate={{ x: [0, 8, 0], opacity: [0.6, 0.2, 0.6] }}
-            transition={{ duration: 2.5, repeat: Infinity }}
-          />
-        </div>
+    <section className="py-20 px-4 scroll-mt-16 bg-gradient-to-b from-white/80 to-white/10 relative overflow-hidden">
+      {/* Floating background blobs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute top-20 left-10 w-96 h-96 rounded-full bg-primary/10 blur-3xl"
+          animate={{ x: [0, 50, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-10 w-96 h-96 rounded-full bg-accent/10 blur-3xl"
+          animate={{ x: [0, -40, 0], y: [0, -50, 0], scale: [1, 1.2, 1] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">Technical Skills</h2>
+          <div className="w-28 h-1 mx-auto mb-12 rounded-full bg-[linear-gradient(var(--gradient-primary))] relative">
+            <motion.div
+              className="absolute inset-0 rounded-full opacity-30"
+              animate={{ x: [0, 8, 0], opacity: [0.6, 0.2, 0.6] }}
+              transition={{ duration: 2.5, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10">
           {skillCategories.map((category, i) => (
-            <FloatingCard key={i} category={category} />
+            <FloatingCard key={i} category={category} index={i} />
           ))}
         </div>
       </div>
@@ -69,7 +90,7 @@ export default function Skills() {
   );
 }
 
-function FloatingCard({ category }: { category: Category }) {
+function FloatingCard({ category, index }: { category: Category; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -96,44 +117,89 @@ function FloatingCard({ category }: { category: Category }) {
   return (
     <motion.div
       ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
-      style={{ rotateY, rotateX, perspective: 900 }}
-      whileHover={{ scale: 1.03 }}
-      className={`relative p-6 rounded-[40px] ${styles.bg} backdrop-blur-[10px] shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-visible`}
+      style={{ rotateY, rotateX, perspective: 1200 }}
+      whileHover={{ scale: 1.02, y: -5 }}
+      className="relative group"
     >
-      {/* Blob accent */}
-      <motion.div
-        className="absolute -top-8 -right-8 w-36 h-36 rounded-full bg-white/10 filter blur-2xl animate-[blob_12s_ease-in-out_infinite]"
-        style={{ zIndex: 0 }}
-      />
-      <div className="flex items-center gap-4 mb-4 relative z-10">
-        <div className={`w-16 h-16 rounded-full flex items-center justify-center ${styles.text}/10`}>
-          <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${styles.bg}`}>
-            <Icon className={`h-6 w-6 ${styles.text}`} />
-          </div>
-        </div>
-        <div>
-          <h3 className="text-2xl font-extrabold text-secondary tracking-tight">{category.title}</h3>
-          <div className="text-xs text-muted-foreground mt-1 flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary/60" />
-            <span className="opacity-80">Curated set of strengths</span>
-          </div>
-        </div>
-      </div>
+      {/* Gradient border wrapper */}
+      <div className={`absolute inset-0 rounded-[50px] bg-gradient-to-br ${styles.badgeGradient} opacity-60 blur-xl group-hover:opacity-100 transition-opacity duration-500`} />
+      
+      {/* Main card with organic shape */}
+      <div className={`relative p-8 rounded-[50px] ${styles.bg} backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden`}>
+        {/* Animated gradient orbs */}
+        <motion.div
+          className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${styles.badgeGradient} opacity-20 blur-3xl`}
+          animate={{ 
+            scale: [1, 1.2, 1],
+            rotate: [0, 90, 0],
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -bottom-20 -left-20 w-40 h-40 rounded-full bg-white/10 opacity-30 blur-3xl"
+          animate={{ 
+            scale: [1, 1.3, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
 
-      <div className="flex flex-wrap gap-3 mt-3 relative z-10">
-        {category.skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            animate={{ y: [0, -6, 0], rotate: [-1, 0, 1] }}
-            transition={{ duration: 3 + (i % 3) * 0.4, repeat: Infinity, ease: "easeInOut" }}
-            whileHover={{ scale: 1.08, y: -8 }}
-            className={`px-4 py-2 text-sm font-semibold text-white/90 rounded-full shadow-md ${styles.badgeGradient} backdrop-blur-sm`}
+        {/* Header with icon */}
+        <div className="flex items-center gap-4 mb-6 relative z-10">
+          <motion.div 
+            className="relative"
+            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 0.5 }}
           >
-            {skill}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 blur-lg" />
+            <div className={`relative w-20 h-20 rounded-full flex items-center justify-center bg-gradient-to-br ${styles.badgeGradient} backdrop-blur-sm shadow-lg`}>
+              <Icon className={`h-10 w-10 ${styles.text}`} />
+            </div>
           </motion.div>
-        ))}
+          <div>
+            <h3 className="text-2xl font-extrabold text-secondary tracking-tight">{category.title}</h3>
+            <div className="text-xs text-muted-foreground mt-1 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-primary/60" />
+              <span className="opacity-80">Expert proficiency</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Skills with organic bubble layout */}
+        <div className="flex flex-wrap gap-3 relative z-10">
+          {category.skills.map((skill, i) => (
+            <motion.div
+              key={i}
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              animate={{ 
+                y: [0, -4, 0],
+              }}
+              transition={{ 
+                delay: 0.3 + i * 0.05,
+                y: { duration: 3 + (i % 3) * 0.5, repeat: Infinity, ease: "easeInOut" }
+              }}
+              whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, -2] }}
+              className={`group/badge relative px-4 py-2.5 text-sm font-semibold text-white rounded-full shadow-lg cursor-default`}
+            >
+              {/* Gradient background */}
+              <div className={`absolute inset-0 rounded-full ${styles.badgeGradient} backdrop-blur-md`} />
+              
+              {/* Shine effect on hover */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700" />
+              
+              {/* Text */}
+              <span className="relative z-10">{skill}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
