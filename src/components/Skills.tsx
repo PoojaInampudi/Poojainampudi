@@ -46,6 +46,40 @@ const colorStyles = {
   },
 };
 
+function getSkillAbbreviation(skill: string): string {
+  const abbreviations: Record<string, string> = {
+    "Salesforce CPQ": "CPQ",
+    "Health Cloud": "HC",
+    "OmniStudio": "OS",
+    "Agent Force": "AF",
+    "Conga CPQ": "CG",
+    "Data Cloud": "DC",
+    "React.js": "⚛️",
+    "JavaScript": "JS",
+    "TypeScript": "TS",
+    "HTML5": "H5",
+    "CSS3": "C3",
+    "Tailwind CSS": "TW",
+    "Aura Components": "AC",
+    "Responsive Design": "RD",
+    "Node.js": "🟢",
+    "Python": "🐍",
+    "C#": "C#",
+    ".NET": ".NET",
+    "REST APIs": "API",
+    "SOAP APIs": "SOAP",
+    "AWS (EC2, Lambda, S3)": "AWS",
+    "MongoDB": "🍃",
+    "MS SQL": "SQL",
+    "Bitbucket": "BB",
+    "CI/CD": "CI",
+    "BeautifulSoup": "BS",
+    "SERP API": "SA",
+    "IBM Cloud": "IBM",
+  };
+  return abbreviations[skill] || skill.slice(0, 3).toUpperCase();
+}
+
 export default function Skills() {
   return (
     <section className="py-20 px-4 scroll-mt-16 bg-gradient-to-b from-white/80 to-white/10 relative overflow-hidden">
@@ -128,10 +162,10 @@ function FloatingCard({ category, index }: { category: Category; index: number }
       className="relative group"
     >
       {/* Gradient border wrapper */}
-      <div className={`absolute inset-0 rounded-[80px] bg-gradient-to-br ${styles.badgeGradient} opacity-60 blur-xl group-hover:opacity-100 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${styles.badgeGradient} opacity-60 blur-xl group-hover:opacity-100 transition-opacity duration-500`} />
       
       {/* Main card with organic shape */}
-      <div className={`relative p-8 rounded-[80px] ${styles.bg} backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden`}>
+      <div className={`relative p-8 rounded-full ${styles.bg} backdrop-blur-xl border border-white/20 shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden`}>
         {/* Animated gradient orbs */}
         <motion.div
           className={`absolute -top-20 -right-20 w-40 h-40 rounded-full bg-gradient-to-br ${styles.badgeGradient} opacity-20 blur-3xl`}
@@ -171,8 +205,8 @@ function FloatingCard({ category, index }: { category: Category; index: number }
           </div>
         </div>
 
-        {/* Skills with organic bubble layout */}
-        <div className="flex flex-wrap gap-3 relative z-10">
+        {/* Skills with logo bubbles */}
+        <div className="flex flex-wrap gap-4 relative z-10">
           {category.skills.map((skill, i) => (
             <motion.div
               key={i}
@@ -186,17 +220,20 @@ function FloatingCard({ category, index }: { category: Category; index: number }
                 delay: 0.3 + i * 0.05,
                 y: { duration: 3 + (i % 3) * 0.5, repeat: Infinity, ease: "easeInOut" }
               }}
-              whileHover={{ scale: 1.1, y: -10, rotate: [-2, 2, -2] }}
-              className={`group/badge relative px-4 py-2.5 text-sm font-semibold text-white rounded-full shadow-lg cursor-default`}
+              whileHover={{ scale: 1.15, y: -12 }}
+              className="group/badge relative"
+              title={skill}
             >
-              {/* Gradient background */}
-              <div className={`absolute inset-0 rounded-full ${styles.badgeGradient} backdrop-blur-md`} />
-              
-              {/* Shine effect on hover */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700" />
-              
-              {/* Text */}
-              <span className="relative z-10">{skill}</span>
+              {/* Circular badge with gradient */}
+              <div className={`relative w-14 h-14 rounded-full ${styles.badgeGradient} backdrop-blur-md shadow-lg flex items-center justify-center border border-white/30`}>
+                {/* Shine effect on hover */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700" />
+                
+                {/* Skill abbreviation/logo */}
+                <span className="relative z-10 text-white font-bold text-xs">
+                  {getSkillAbbreviation(skill)}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
