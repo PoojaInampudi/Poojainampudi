@@ -1,5 +1,10 @@
 import { Badge } from "@/components/ui/badge";
-import { Cloud, Code2, Database, Wrench, Sparkles } from "lucide-react";
+import { 
+  Cloud, Code2, Database, Wrench, Sparkles, Heart, Layers, Zap, 
+  Workflow, Bot, FileText, CloudCog, FileCode, Palette, Wind, 
+  Monitor, Server, Coffee, Package, Beaker, Webhook, Network, 
+  GitBranch, Cog, GitPullRequest, Play, Search, Component
+} from "lucide-react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
 import type { ComponentType, SVGProps } from "react";
@@ -46,38 +51,48 @@ const colorStyles = {
   },
 };
 
-function getSkillAbbreviation(skill: string): string {
-  const abbreviations: Record<string, string> = {
-    "Salesforce CPQ": "CPQ",
-    "Health Cloud": "HC",
-    "OmniStudio": "OS",
-    "Agent Force": "AF",
-    "Conga CPQ": "CG",
-    "Data Cloud": "DC",
-    "React.js": "⚛️",
-    "JavaScript": "JS",
-    "TypeScript": "TS",
-    "HTML5": "H5",
-    "CSS3": "C3",
-    "Tailwind CSS": "TW",
-    "Aura Components": "AC",
-    "Responsive Design": "RD",
-    "Node.js": "🟢",
-    "Python": "🐍",
-    "C#": "C#",
-    ".NET": ".NET",
-    "REST APIs": "API",
-    "SOAP APIs": "SOAP",
-    "AWS (EC2, Lambda, S3)": "AWS",
-    "MongoDB": "🍃",
-    "MS SQL": "SQL",
-    "Bitbucket": "BB",
-    "CI/CD": "CI",
-    "BeautifulSoup": "BS",
-    "SERP API": "SA",
-    "IBM Cloud": "IBM",
+function getSkillIcon(skill: string): ComponentType<SVGProps<SVGSVGElement>> {
+  const iconMap: Record<string, ComponentType<SVGProps<SVGSVGElement>>> = {
+    "Salesforce CPQ": Cloud,
+    "Health Cloud": Heart,
+    "OmniStudio": Layers,
+    "Apex": Code2,
+    "LWC": Zap,
+    "SOQL": Database,
+    "Flows": Workflow,
+    "Agent Force": Bot,
+    "Conga CPQ": FileText,
+    "Data Cloud": CloudCog,
+    "React.js": Component,
+    "JavaScript": FileCode,
+    "TypeScript": FileCode,
+    "HTML5": FileCode,
+    "CSS3": Palette,
+    "Tailwind CSS": Wind,
+    "Aura Components": Sparkles,
+    "Responsive Design": Monitor,
+    "Node.js": Server,
+    "Python": Code2,
+    "Java": Coffee,
+    "C#": Code2,
+    ".NET": Package,
+    "Flask": Beaker,
+    "Django": Server,
+    "REST APIs": Webhook,
+    "SOAP APIs": Network,
+    "AWS (EC2, Lambda, S3)": Cloud,
+    "MongoDB": Database,
+    "MS SQL": Database,
+    "Git": GitBranch,
+    "Bitbucket": GitBranch,
+    "Jenkins": Cog,
+    "CI/CD": GitPullRequest,
+    "Playwright": Play,
+    "BeautifulSoup": Code2,
+    "SERP API": Search,
+    "IBM Cloud": Cloud,
   };
-  return abbreviations[skill] || skill.slice(0, 3).toUpperCase();
+  return iconMap[skill] || Code2;
 }
 
 export default function Skills() {
@@ -222,17 +237,22 @@ function FloatingCard({ category, index }: { category: Category; index: number }
               }}
               whileHover={{ scale: 1.15, y: -12 }}
               className="group/badge relative"
-              title={skill}
             >
               {/* Circular badge with gradient */}
               <div className={`relative w-14 h-14 rounded-full ${styles.badgeGradient} backdrop-blur-md shadow-lg flex items-center justify-center border border-white/30`}>
                 {/* Shine effect on hover */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/badge:translate-x-[100%] transition-transform duration-700" />
                 
-                {/* Skill abbreviation/logo */}
-                <span className="relative z-10 text-white font-bold text-xs">
-                  {getSkillAbbreviation(skill)}
-                </span>
+                {/* Skill icon */}
+                {(() => {
+                  const SkillIcon = getSkillIcon(skill);
+                  return <SkillIcon className="relative z-10 text-white w-6 h-6" />;
+                })()}
+                
+                {/* Hover tooltip */}
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-secondary text-white text-xs font-semibold rounded-lg opacity-0 group-hover/badge:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none shadow-lg z-20">
+                  {skill}
+                </div>
               </div>
             </motion.div>
           ))}
