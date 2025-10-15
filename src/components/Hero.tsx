@@ -67,11 +67,6 @@ const Hero = () => {
               </p>
             </div>
             
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                <span>Available for opportunities</span>
-              </div>
               <div className="px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border text-muted-foreground">
                 📍 Austin, Texas
               </div>
