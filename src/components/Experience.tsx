@@ -209,65 +209,117 @@ const Experience = () => {
         {/* Timeline Layout */}
         <div className="relative">
           {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20" />
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20 -translate-x-1/2" />
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row gap-8 ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
+                className="relative grid md:grid-cols-2 gap-8"
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 -ml-[7px] rounded-full bg-primary border-4 border-background shadow-lg z-10 animate-pulse" />
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-primary border-4 border-background shadow-lg z-10 animate-pulse" />
                 
-                {/* Content */}
-                <div className={`flex-1 ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}`}>
-                  <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
-                    <div className="flex flex-col gap-4">
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Building2 className="h-5 w-5 text-primary" />
-                          <h3 className="text-2xl font-bold text-secondary">{exp.company}</h3>
-                        </div>
-                        <p className="text-xl font-semibold text-primary mb-1">{exp.role}</p>
-                        <div className="flex items-center gap-2 text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
-                          <span className="text-sm">{exp.period}</span>
-                          <span className="text-sm">• {exp.location}</span>
-                        </div>
-                      </div>
+                {/* Content - Left side for even indices, right side for odd */}
+                {index % 2 === 0 ? (
+                  <>
+                    <div className="ml-12 md:ml-0">
+                      <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
+                        <div className="flex flex-col gap-4">
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <Building2 className="h-5 w-5 text-primary" />
+                              <h3 className="text-2xl font-bold text-secondary">{exp.company}</h3>
+                            </div>
+                            <p className="text-xl font-semibold text-primary mb-1">{exp.role}</p>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <Calendar className="h-4 w-4" />
+                              <span className="text-sm">{exp.period}</span>
+                              <span className="text-sm">• {exp.location}</span>
+                            </div>
+                          </div>
 
-                      <div>
-                        <h4 className="text-sm font-semibold text-secondary mb-2">Skills Utilized:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {exp.skills.map((skill, skillIndex) => (
-                            <Badge
-                              key={skillIndex}
-                              variant="secondary"
-                              className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
-                            >
-                              {skill}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
+                          <div>
+                            <h4 className="text-sm font-semibold text-secondary mb-2">Skills Utilized:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.skills.map((skill, skillIndex) => (
+                                <Badge
+                                  key={skillIndex}
+                                  variant="secondary"
+                                  className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
+                                >
+                                  {skill}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
 
-                      <div>
-                        <h4 className="text-sm font-semibold text-secondary mb-3">Key Achievements:</h4>
-                        <ul className="space-y-2">
-                          {exp.achievements.map((achievement, achievementIndex) => (
-                            <li key={achievementIndex} className="flex items-start text-muted-foreground">
-                              <span className="text-primary mr-2 mt-1">▸</span>
-                              <span className="text-sm">{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
+                          <div>
+                            <h4 className="text-sm font-semibold text-secondary mb-3">Key Achievements:</h4>
+                            <ul className="space-y-2">
+                              {exp.achievements.map((achievement, achievementIndex) => (
+                                <li key={achievementIndex} className="flex items-start text-muted-foreground">
+                                  <span className="text-primary mr-2 mt-1">▸</span>
+                                  <span className="text-sm">{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                    <div className="hidden md:block" />
+                  </>
+                ) : (
+                  <>
+                    <div className="hidden md:block" />
+                    <div className="ml-12 md:ml-0">
+                      <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
+                        <div className="flex flex-col gap-4">
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <Building2 className="h-5 w-5 text-primary" />
+                              <h3 className="text-2xl font-bold text-secondary">{exp.company}</h3>
+                            </div>
+                            <p className="text-xl font-semibold text-primary mb-1">{exp.role}</p>
+                            <div className="flex items-center gap-2 text-muted-foreground">
+                              <Calendar className="h-4 w-4" />
+                              <span className="text-sm">{exp.period}</span>
+                              <span className="text-sm">• {exp.location}</span>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-sm font-semibold text-secondary mb-2">Skills Utilized:</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.skills.map((skill, skillIndex) => (
+                                <Badge
+                                  key={skillIndex}
+                                  variant="secondary"
+                                  className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
+                                >
+                                  {skill}
+                                </Badge>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-sm font-semibold text-secondary mb-3">Key Achievements:</h4>
+                            <ul className="space-y-2">
+                              {exp.achievements.map((achievement, achievementIndex) => (
+                                <li key={achievementIndex} className="flex items-start text-muted-foreground">
+                                  <span className="text-primary mr-2 mt-1">▸</span>
+                                  <span className="text-sm">{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
