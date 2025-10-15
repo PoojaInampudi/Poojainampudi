@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Mail, Download, MapPin } from "lucide-react";
+import { Linkedin, Mail, Download, MapPin, Calendar, Briefcase, Users } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const roles = [
@@ -21,6 +21,8 @@ const Hero = () => {
       prefersReducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     }
   }, []);
+
+  
 
   useEffect(() => {
     if (prefersReducedMotion.current) {
@@ -96,49 +98,76 @@ const Hero = () => {
               <span className="inline-block ml-2 w-1 bg-muted-foreground animate-cursor" aria-hidden />
             </p>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-3xl leading-relaxed">
-              I’m a passionate technologist specializing in{" "}
-              <strong className="text-secondary">Salesforce CPQ</strong> and{" "}
-              <strong className="text-secondary">OmniStudio</strong>, blending technical precision
-              with elegant architecture to deliver seamless enterprise-grade experiences.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 mt-3">
-              {["Salesforce", "CPQ", "OmniStudio", "React", "TypeScript", "Node.js"].map((s) => (
-                <span
-                  key={s}
-                  className="px-3 py-1.5 rounded-full bg-card/70 border border-border text-sm text-muted-foreground shadow-sm hover:shadow-lg hover:-translate-y-1 hover:bg-accent/10 transition-all"
-                >
-                  {s}
-                </span>
-              ))}
+            <div className="relative max-w-3xl">
+              <div className="absolute -inset-1 bg-gradient-to-br from-background/30 to-card/20 rounded-2xl blur-lg opacity-60 -z-10" />
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed p-6 rounded-2xl">
+                I’m a seasoned technologist specializing in <strong className="text-secondary">Salesforce CPQ</strong> and <strong className="text-secondary">OmniStudio</strong>. I design and deliver enterprise-grade systems with robust integrations, automated pricing engines, and elegant UX.
+              </p>
             </div>
 
-            <div className="flex items-center gap-4 mt-8">
-              <Button asChild size="lg" className="bg-primary text-primary-foreground px-6 py-3 rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Get in Touch
-                </a>
-              </Button>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
+              <div className="flex flex-wrap items-center gap-3">
+                {[
+                  "Salesforce",
+                  "CPQ",
+                  "OmniStudio",
+                  "React",
+                  "TypeScript",
+                  "Node.js",
+                ].map((s) => (
+                  <span
+                    key={s}
+                    className="px-3 py-1.5 rounded-full bg-card/70 border border-border text-sm text-muted-foreground shadow-sm"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
 
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="px-6 py-3 rounded-full border border-primary/50 hover:bg-primary/10 hover:shadow-lg transition-all duration-300"
-              >
-                <a
-                  href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view?usp=sharing"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+              <div className="flex items-center gap-3">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-6 py-3 rounded-full shadow-2xl hover:-translate-y-1 transform transition-transform duration-300 focus:outline-none focus:ring-4 focus:ring-primary/25"
                 >
-                  <Download className="h-4 w-4" />
-                  View Resume
-                </a>
-              </Button>
+                  <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center gap-2">
+                    <Mail className="h-5 w-5" />
+                    Contact
+                  </a>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="px-6 py-3 rounded-full border border-primary/60 bg-card/50 text-primary hover:bg-primary/5 transition-colors duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+                >
+                  <a
+                    href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Download className="h-4 w-4" />
+                    Resume
+                  </a>
+                </Button>
+
+                <Button asChild variant="ghost" size="lg" className="px-4 py-2">
+                  <a
+                    href="https://calendly.com/inampudipooja/meet-with-pooja-inampudi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-full px-4 py-2 bg-primary/10 text-primary border border-primary/30 shadow-sm hover:bg-primary/20 hover:shadow-md transition-all duration-200"
+                  >
+                    <Calendar className="h-4 w-4" />
+                    Schedule
+                  </a>
+                </Button>
+              </div>
             </div>
+
+            {/* stats removed per request */}
           </div>
 
           {/* Profile Section */}
@@ -162,14 +191,18 @@ const Hero = () => {
             </div>
 
             {/* Fancy location badge */}
-            <div className="flex items-center gap-3 px-5 py-3 rounded-full bg-gradient-to-r from-primary/15 to-accent/10 border border-primary/30 shadow-lg backdrop-blur-md hover:scale-105 transition-all">
-              <MapPin className="h-5 w-5 text-primary" />
+            <div className="flex items-center gap-3 px-6 py-4 rounded-full bg-gradient-to-r from-primary/20 via-accent/15 to-secondary/10 border border-primary/40 shadow-xl backdrop-blur-md hover:scale-105 transition-all duration-300">
+              <MapPin className="h-6 w-6 text-primary drop-shadow-sm" />
               <div className="text-left">
-                <div className="text-sm font-semibold text-secondary">Austin, Texas</div>
-                <div className="text-xs text-muted-foreground">Open to Relocate</div>
-              </div>
-              <span className="ml-2 w-3 h-3 bg-primary rounded-full animate-pulse" aria-hidden />
+                <div className="text-base md:text-lg font-semibold text-secondary">
+                  Austin, Texas
+                </div>
+                <div className="text-sm md:text-base text-primary font-medium tracking-wide">
+                  🌎 Open to Relocate
+                </div>
             </div>
+          </div>
+
           </div>
         </div>
       </div>
