@@ -17,38 +17,40 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
 
-    --primary: 207 90% 45%;
+    --primary: 213 87% 25%;
     --primary-foreground: 0 0% 100%;
     
-    --primary-glow: 207 85% 60%;
-    --primary-dark: 207 95% 35%;
+    --primary-glow: 213 73% 45%;
+    --primary-dark: 213 95% 18%;
 
-    --secondary: 220 15% 20%;
+    --secondary: 213 31% 20%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 93%;
-    --muted-foreground: 220 15% 45%;
+    --muted: 216 20% 92%;
+    --muted-foreground: 213 15% 45%;
 
-    --accent: 280 65% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 92% 55%;
+    --accent-foreground: 213 31% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 88%;
-    --input: 220 20% 88%;
-    --ring: 207 90% 45%;
+    --border: 216 20% 88%;
+    --input: 216 20% 88%;
+    --ring: 213 87% 25%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
     
-    --gradient-primary: linear-gradient(135deg, hsl(207 90% 45%), hsl(207 85% 60%));
-    --gradient-hero: linear-gradient(135deg, hsl(207 90% 45%), hsl(280 65% 55%));
+    --gradient-primary: linear-gradient(135deg, hsl(213 87% 25%), hsl(213 73% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(213 87% 25%), hsl(35 92% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(213 87% 25% / 0.08), hsl(213 73% 45% / 0.04));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 25% 98%));
     
-    --shadow-sm: 0 2px 8px -2px hsl(207 90% 45% / 0.1);
-    --shadow-md: 0 8px 24px -6px hsl(207 90% 45% / 0.15);
-    --shadow-lg: 0 16px 48px -12px hsl(207 90% 45% / 0.2);
-    --shadow-glow: 0 0 32px hsl(207 85% 60% / 0.25);
+    --shadow-sm: 0 1px 3px 0 hsl(0 0% 0% / 0.08);
+    --shadow-md: 0 4px 12px -2px hsl(0 0% 0% / 0.12);
+    --shadow-lg: 0 20px 25px -5px hsl(0 0% 0% / 0.15);
+    --shadow-xl: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+    --shadow-glow: 0 0 40px hsl(213 73% 45% / 0.35);
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -128,5 +130,92 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+  }
+  
+  .animate-reveal {
+    animation: reveal 0.8s ease-out;
+  }
+  
+  .animate-float-slow {
+    animation: floatSlow 8s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .rotate-y-12 {
+    transform: rotateY(12deg);
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(50px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes floatSlow {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-10px);
+    }
+    75% {
+      transform: translateY(-15px) translateX(5px);
+    }
+  }
+  
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsl(213 73% 45% / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px hsl(213 73% 45% / 0.6);
+    }
   }
 }

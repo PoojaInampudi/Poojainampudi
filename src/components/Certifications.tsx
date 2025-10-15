@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, ExternalLink, Cloud } from "lucide-react";
+import { Award, ExternalLink, Cloud, Sparkles } from "lucide-react";
 import certificationsBanner from "@/assets/certifications-banner.png";
 
 const certifications = [
@@ -18,7 +18,7 @@ const certifications = [
     description: "Validates foundational knowledge of AI concepts and Salesforce AI capabilities",
     skills: ["AI Fundamentals", "Einstein AI", "Prompt Engineering", "AI Ethics"],
     badgeUrl: "https://trailhead.salesforce.com/credentials/aiassociate",
-    icon: Cloud,
+    icon: Sparkles,
   },
   {
     name: "Salesforce Certified AI Specialist",
@@ -26,7 +26,7 @@ const certifications = [
     description: "Certifies advanced expertise in implementing and optimizing Salesforce AI solutions",
     skills: ["Einstein GPT", "AI Models", "Predictive Analytics", "AI Integration"],
     badgeUrl: "https://trailhead.salesforce.com/credentials/aispecialist",
-    icon: Cloud,
+    icon: Sparkles,
   },
   {
     name: "Salesforce Certified Data Cloud Consultant",
@@ -56,17 +56,26 @@ const certifications = [
 
 const Certifications = () => {
   return (
-    <section className="py-20 px-4 bg-muted/30 scroll-mt-16" id="certifications">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">
-          Certifications
-        </h2>
-        <div className="w-24 h-1 mx-auto mb-6 rounded-full bg-[linear-gradient(var(--gradient-primary))]" />
-        <p className="text-center text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Professional certifications demonstrating expertise in Salesforce platform development and cloud technologies
-        </p>
+    <section className="py-20 px-4 scroll-mt-16 relative overflow-hidden" id="certifications">
+      {/* Diagonal background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-muted/40 via-background to-muted/30" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3" />
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="text-center mb-16 animate-fade-in">
+          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+            <span className="bg-clip-text text-transparent bg-[linear-gradient(var(--gradient-accent))]">
+              Certifications
+            </span>
+          </h2>
+          <div className="w-32 h-1.5 mx-auto mb-6 rounded-full bg-[linear-gradient(var(--gradient-accent))]" />
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Professional certifications demonstrating expertise in Salesforce platform development and cloud technologies
+          </p>
+        </div>
 
-        <div className="mb-12 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-[var(--shadow-lg)]">
+        <div className="mb-16 rounded-3xl overflow-hidden border-2 border-primary/20 shadow-[var(--shadow-xl)] hover:shadow-[var(--shadow-glow)] transition-all duration-500 hover:scale-[1.02] animate-reveal">
           <img 
             src={certificationsBanner} 
             alt="Certification Badges - Salesforce and AWS Certifications" 
@@ -74,62 +83,71 @@ const Certifications = () => {
           />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert, index) => {
             const IconComponent = cert.icon;
             return (
               <Card
                 key={index}
-                className="p-6 hover:shadow-[var(--shadow-lg)] transition-all duration-300 border-2 hover:border-primary/50 bg-[linear-gradient(var(--gradient-card))] flex flex-col"
+                className="group relative p-7 border-2 border-transparent hover:border-primary/30 transition-all duration-500 bg-card/70 backdrop-blur-sm hover:shadow-[var(--shadow-xl)] hover:-translate-y-3 flex flex-col"
+                style={{ 
+                  animationDelay: `${index * 0.1}s`,
+                  animation: `reveal 0.6s ease-out ${index * 0.1}s both`
+                }}
               >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <IconComponent className="h-6 w-6 text-primary" />
+                <div className="absolute inset-0 bg-[linear-gradient(var(--gradient-accent))] opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-lg" />
+                
+                <div className="flex items-start justify-between mb-5 relative z-10">
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                    <IconComponent className="h-7 w-7 text-primary" />
                   </div>
-                <a
-                  href={cert.badgeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:text-primary-dark transition-colors"
-                  title="View credential"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-              </div>
-
-              <h3 className="text-lg font-bold text-secondary mb-2 leading-tight">
-                {cert.name}
-              </h3>
-              <p className="text-sm font-medium text-primary mb-3">{cert.issuer}</p>
-              <p className="text-sm text-muted-foreground mb-4 flex-grow">
-                {cert.description}
-              </p>
-
-              <div className="flex flex-wrap gap-2 pt-4 border-t border-border">
-                {cert.skills.map((skill, skillIndex) => (
-                  <Badge
-                    key={skillIndex}
-                    variant="secondary"
-                    className="text-xs bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
+                  <a
+                    href={cert.badgeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-accent transition-all duration-300 hover:scale-125"
+                    title="View credential"
                   >
-                    {skill}
-                </Badge>
-              ))}
-            </div>
-          </Card>
-        );
-          })}
-      </div>
+                    <ExternalLink className="h-5 w-5" />
+                  </a>
+                </div>
 
-        <div className="mt-12 text-center">
-          <Card className="p-8 bg-[linear-gradient(var(--gradient-card))] border-2 inline-block">
-            <div className="flex items-center justify-center gap-4 flex-wrap">
-              <Award className="h-8 w-8 text-primary" />
+                <h3 className="text-xl font-bold text-secondary mb-3 leading-tight relative z-10 group-hover:text-primary transition-colors duration-300">
+                  {cert.name}
+                </h3>
+                <p className="text-sm font-semibold text-accent mb-4 relative z-10">{cert.issuer}</p>
+                <p className="text-sm text-muted-foreground mb-5 flex-grow relative z-10 leading-relaxed">
+                  {cert.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-border/50 relative z-10">
+                  {cert.skills.map((skill, skillIndex) => (
+                    <Badge
+                      key={skillIndex}
+                      variant="secondary"
+                      className="text-xs px-3 py-1 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground border border-primary/20 hover:border-primary transition-all duration-300 hover:scale-110"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="mt-16 text-center animate-fade-in">
+          <Card className="p-10 bg-card/70 backdrop-blur-sm border-2 border-transparent hover:border-primary/30 transition-all duration-500 inline-block hover:shadow-[var(--shadow-xl)] hover:-translate-y-1 relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,hsl(var(--primary)/0.05)_100%)] group-hover:opacity-100 opacity-50 transition-opacity duration-500" />
+            <div className="flex items-center justify-center gap-6 flex-wrap relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                <Award className="h-9 w-9 text-primary" />
+              </div>
               <div className="text-left">
-                <p className="text-2xl font-bold text-secondary">
+                <p className="text-3xl font-bold text-secondary mb-1">
                   {certifications.length} Professional Certifications
                 </p>
-                <p className="text-muted-foreground">
+                <p className="text-lg text-muted-foreground">
                   Salesforce & AWS Cloud expertise validated through industry certifications
                 </p>
               </div>
