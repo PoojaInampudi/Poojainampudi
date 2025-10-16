@@ -189,56 +189,63 @@ const Contact = () => {
                   </motion.div>
                 </div>
 
-                <div className="space-y-3">
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="w-full bg-gradient-to-r from-primary via-primary-glow to-accent hover:shadow-[0_0_30px_-5px_var(--primary)] text-primary-foreground shadow-lg transition-all duration-300 font-semibold relative overflow-hidden group"
-                    >
-                      <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center justify-center gap-2">
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                          initial={{ x: "-100%" }}
-                          whileHover={{ x: "100%" }}
-                          transition={{ duration: 0.6 }}
-                        />
-                        <Send className="h-5 w-5" />
-                        Send Email
-                      </a>
-                    </Button>
-                  </motion.div>
+              <div className="space-y-3">
+  {/* Send Email Button */}
+  <motion.div 
+    whileHover={{ scale: 1.05, rotate: 1 }} 
+    whileTap={{ scale: 0.98 }}
+    transition={{ type: "spring", stiffness: 400 }}
+  >
+    <Button
+      asChild
+      size="lg"
+      className="w-full relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-primary-foreground font-semibold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)]"
+    >
+      <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center justify-center gap-3 relative z-10">
+        <Send className="h-5 w-5" />
+        Send Email
+      </a>
+      {/* Animated highlight overlay */}
+      <motion.div
+        className="absolute inset-0 bg-white/20"
+        initial={{ x: "-100%" }}
+        whileHover={{ x: "100%" }}
+        transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+      />
+    </Button>
+  </motion.div>
 
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="lg"
-                      className="w-full bg-gradient-to-r from-background/50 to-primary/5 border-2 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_-5px_var(--primary)] transition-all duration-300 font-medium"
-                    >
-                      <a
-                        href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Download className="mr-2 h-4 w-4" />
-                        Download Resume
-                      </a>
-                    </Button>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </div>
-          </Card>
-        </motion.div>
+  {/* Download Resume Button */}
+  <motion.div 
+    whileHover={{ scale: 1.05, rotate: -1 }} 
+    whileTap={{ scale: 0.98 }}
+    transition={{ type: "spring", stiffness: 400 }}
+  >
+    <Button
+      asChild
+      size="lg"
+      className="w-full relative overflow-hidden rounded-xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-primary hover:text-primary-foreground font-semibold tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_-5px_rgba(255,255,255,0.3)]"
+    >
+      <a
+        href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center justify-center gap-3 relative z-10"
+      >
+        <Download className="h-5 w-5" />
+        Download Resume
+      </a>
+      {/* Animated gradient overlay */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/10 to-white/20"
+        initial={{ x: "-100%" }}
+        whileHover={{ x: "100%" }}
+        transition={{ duration: 1, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+      />
+    </Button>
+  </motion.div>
+</div>
+
 
         <motion.div
           className="mt-16 text-center"
