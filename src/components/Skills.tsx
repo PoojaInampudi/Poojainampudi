@@ -176,7 +176,7 @@ function SkillCard({ category, index }: { category: Category; index: number }) {
 
                 <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
                   {typeof SkillIcon === 'string' ? (
-                    <img src={SkillIcon} alt={skill} className="w-5 h-5 object-contain" />
+                    <img src={SkillIcon} alt={skill} className="w-5 h-5 object-contain brightness-0 invert" />
                   ) : (
                     <SkillIcon size={20} color="white" />
                   )}
