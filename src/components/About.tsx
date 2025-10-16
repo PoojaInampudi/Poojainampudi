@@ -7,7 +7,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="relative py-28 px-6 overflow-hidden bg-[radial-gradient(circle_at_top_left,var(--primary)/10,transparent_70%)]"
+      className="relative py-28 px-6 overflow-hidden bg-[radial-gradient(circle_at_top_left,var(--primary)/10,transparent_70%)] scroll-mt-16"
     >
       {/* Floating gradient orbs */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />

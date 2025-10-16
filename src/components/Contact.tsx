@@ -69,32 +69,34 @@ const Contact = () => {
               </div>
               
               <div className="grid grid-cols-2 gap-3">
-                <a
-                  href="https://github.com/PoojaInampudi"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-2 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
                 >
-                  <Button
-                    variant="outline"
-                    className="w-full border-2 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+                  <a
+                    href="https://github.com/PoojaInampudi"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Github className="mr-2 h-4 w-4" />
                     GitHub
-                  </Button>
-                </a>
-                <a
-                  href="https://linkedin.com/in/poojainampudi"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-2 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
                 >
-                  <Button
-                    variant="outline"
-                    className="w-full border-2 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300"
+                  <a
+                    href="https://linkedin.com/in/poojainampudi"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Linkedin className="mr-2 h-4 w-4" />
                     LinkedIn
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
               <div className="grid grid-cols-1 gap-3">
                 <Button
@@ -108,19 +110,20 @@ const Contact = () => {
                   </a>
                 </Button>
 
-                <a
-                  href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Button
+                  asChild
+                  variant="default"
+                  className="w-full bg-white/5 border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-sm"
                 >
-                  <Button
-                    variant="default"
-                    className="w-full bg-white/5 border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-sm btn-shine pulse-ring overflow-hidden relative"
+                  <a
+                    href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Download className="mr-2 h-4 w-4" />
                     Resume
-                  </Button>
-                </a>
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

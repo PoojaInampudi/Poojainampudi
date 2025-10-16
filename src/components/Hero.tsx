@@ -110,7 +110,7 @@ const Hero = () => {
 
             <div className="relative max-w-3xl">
               <div className="absolute -inset-1 bg-gradient-to-br from-background/30 to-card/20 rounded-2xl blur-lg opacity-60 -z-10" />
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed p-6 rounded-2xl">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed p-6 rounded-2xl backdrop-blur-sm">
                 I build end-to-end web applications that combine <strong className="font-semibold text-secondary">sleek frontends</strong>, <strong className="font-semibold text-secondary">robust backends</strong>, and <strong className="font-semibold text-secondary">seamless user experiences</strong>.
               </p>
             </div>

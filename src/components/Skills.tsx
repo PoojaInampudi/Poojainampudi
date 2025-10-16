@@ -86,7 +86,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 px-4 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,var(--primary)/8,transparent_60%)]"
+      className="py-20 px-4 relative overflow-hidden bg-[radial-gradient(circle_at_top_left,var(--primary)/8,transparent_60%)] scroll-mt-16"
     >
       {/* floating subtle orbs */}
       <div className="absolute -top-20 -right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse pointer-events-none" />

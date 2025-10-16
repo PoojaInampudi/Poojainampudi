@@ -36,18 +36,17 @@ const certifications = [
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: (i: number) => ({
+  visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.6, ease: "easeOut" },
-  }),
+  },
 };
 
 const Certifications = () => {
   return (
     <section
       id="certifications"
-      className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-background via-background/95 to-background"
+      className="relative py-24 px-6 overflow-hidden bg-gradient-to-br from-background via-background/95 to-background scroll-mt-16"
     >
       {/* Floating sparkles */}
       <motion.div
@@ -116,11 +115,11 @@ const Certifications = () => {
           {certifications.map((cert, i) => (
             <motion.div
               key={i}
-              custom={i}
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              transition={{ delay: i * 0.15, duration: 0.6 }}
               className="group relative p-6 rounded-2xl border border-primary/20 bg-gradient-to-br from-background/60 via-background/40 to-background/20 backdrop-blur-md shadow-[0_0_15px_-5px_var(--primary)] hover:shadow-[0_0_25px_-5px_var(--primary)] hover:scale-[1.02] transition-all duration-500 overflow-hidden"
             >
               {/* Subtle hover gradient */}
