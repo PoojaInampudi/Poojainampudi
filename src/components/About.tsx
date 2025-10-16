@@ -55,8 +55,8 @@ const About = () => {
           />
 
           <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto relative z-10">
-            A passionate engineer blending creativity, technology, and business logic to
-            build impactful digital experiences.
+            A passionate engineer blending creativity, technology, and business logic to build impactful digital
+            experiences.
           </p>
         </motion.div>
 
@@ -110,7 +110,7 @@ const About = () => {
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">💡</span>
-                    <span>Salesforce CPQ & Health Cloud Specialist</span>
+                    <span>Salesforce CPQ Specialist</span>
                   </li>
                   <li className="flex items-start">
                     <span className="text-primary mr-2">⚙️</span>
@@ -130,9 +130,7 @@ const About = () => {
                          backdrop-blur-md transition-all duration-500 text-center"
             >
               <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                  {item.icon}
-                </div>
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">{item.icon}</div>
               </div>
               <h3 className="text-2xl font-bold mb-4 text-secondary">{item.title}</h3>
               <div className="text-sm leading-relaxed">{item.content}</div>
@@ -149,14 +147,15 @@ const About = () => {
         >
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/20 blur-3xl rounded-full" />
           <h3 className="text-4xl font-bold text-secondary mb-6">Professional Journey</h3>
-            <p className="text-muted-foreground leading-relaxed text-lg max-w-4xl mx-auto">
-              I’m a <b>full-stack engineer</b> who loves transforming <b>complex ideas</b> into seamless digital experiences.
-              I build <b>scalable applications</b> from the ground up, blending robust <b>backend architecture</b> with intuitive,
-              engaging <b>front-end designs</b>. From designing <b>efficient workflows</b> to optimizing <b>performance</b>,
-              I focus on creating software that’s not only <b>functional</b> but also <b>elegant</b> and <b>maintainable</b>.
-              Driven by <b>curiosity</b> and a passion for <b>problem-solving</b>, I thrive on turning <b>challenges</b> into
-              <b>innovative solutions</b> that make a real impact for <b>users</b> and <b>businesses</b> alike.
-            </p>
+          <p className="text-muted-foreground leading-relaxed text-lg max-w-4xl mx-auto">
+            I’m a <b>full-stack engineer</b> who loves transforming <b>complex ideas</b> into seamless digital
+            experiences. I build <b>scalable applications</b> from the ground up, blending robust{" "}
+            <b>backend architecture</b> with intuitive, engaging <b>front-end designs</b>. From designing{" "}
+            <b>efficient workflows</b> to optimizing <b>performance</b>, I focus on creating software that’s not only{" "}
+            <b>functional</b> but also <b>elegant</b> and <b>maintainable</b>. Driven by <b>curiosity</b> and a passion
+            for <b>problem-solving</b>, I thrive on turning <b>challenges</b> into
+            <b>innovative solutions</b> that make a real impact for <b>users</b> and <b>businesses</b> alike.
+          </p>
         </motion.div>
       </div>
     </section>
