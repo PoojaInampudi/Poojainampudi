@@ -17,7 +17,7 @@ import { FaRobot } from "react-icons/fa";
 const skillCategories = [
   {
     title: "Salesforce",
-    icon: Cloud,
+    icon: SiSalesforce,
     skills: ["Salesforce CPQ", "Health Cloud", "OmniStudio", "Apex", "LWC", "SOQL", "Flows", "Agent Force", "Conga CPQ", "Data Cloud"],
   },
   {
