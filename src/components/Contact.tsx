@@ -140,7 +140,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-secondary mb-2 text-lg">Location</h3>
                     <p className="text-muted-foreground">Austin, Texas, USA</p>
-                    <p className="text-sm text-primary mt-1">Open to Relocate</p>
+                    <p className="text-sm text-primary mt-1"> 🌎 Open to Relocate</p>
                   </div>
                 </motion.div>
               </div>
