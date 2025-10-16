@@ -157,8 +157,7 @@ const Contact = () => {
                     Let's Collaborate
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Available for <span className="text-primary font-semibold">Salesforce development</span>, consulting
-                    projects, and technical collaborations.
+                    Open to <span className="text-primary font-semibold">Innovative projects, technical collaborations, and problem-solving opportunities.
                   </p>
                 </div>
 
