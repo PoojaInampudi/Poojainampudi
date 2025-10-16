@@ -8,7 +8,11 @@ import {
 } from "react-icons/si";
 import { Cloud, Code2, Database, Wrench, Workflow, Coffee } from "lucide-react";
 import salesforceCPQIcon from "@/assets/salesforce-cpq-icon.png";
-
+import omnistudioIcon from "@/assets/Omnistudio.png";
+import lwcIcon from "@/assets/LWC.png";
+import agentforceIcon from "@/assets/Agentforce.png";
+import Rest from "@/assets/Rest.png";
+import serp from "@/assets/Serp.png";
 const skillCategories = [
   {
     title: "Salesforce",
@@ -18,17 +22,17 @@ const skillCategories = [
   {
     title: "Frontend",
     icon: Code2,
-    skills: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Aura Components", "Responsive Design"],
+    skills: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Aura Components"],
   },
   {
     title: "Backend & Cloud",
     icon: Database,
-    skills: ["Node.js", "Python", "Java", "C#", ".NET", "Flask", "Django", "REST APIs", "SOAP APIs", "AWS (EC2, Lambda, S3)", "MongoDB", "MS SQL"],
+    skills: ["Node.js", "Python", "Java", "C#", ".NET", "Flask", "Django", "REST APIs","AWS (EC2, Lambda, S3)", "MongoDB", "MS SQL"],
   },
   {
     title: "Tools & DevOps",
     icon: Wrench,
-    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup", "SERP API", "IBM Cloud"],
+    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup", "SERP API"],
   },
 ];
 
@@ -37,13 +41,12 @@ type Category = { title: string; icon: ComponentType<SVGProps<SVGSVGElement>>; s
 function getSkillIcon(skill: string): ComponentType<any> | string {
   const iconMap: Record<string, ComponentType<any> | string> = {
     "Salesforce CPQ": salesforceCPQIcon,
-    "Health Cloud": SiSalesforce,
-    "OmniStudio": SiSalesforce,
+    "OmniStudio": omnistudioIcon,
     "Apex": Code2,
-    "LWC": SiSalesforce,
+    "LWC": lwcIcon,
     "SOQL": Database,
     "Flows": Workflow,
-    "Agent Force": SiSalesforce,
+    "Agent Force": agentforceIcon,
     "Conga CPQ": Cloud,
     "Data Cloud": SiSalesforce,
     "React.js": SiReact,
@@ -53,7 +56,6 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "CSS3": SiCss3,
     "Tailwind CSS": SiTailwindcss,
     "Aura Components": SiSalesforce,
-    "Responsive Design": SiReact,
     "Node.js": SiNodedotjs,
     "Python": SiPython,
     "Java": Coffee,
@@ -61,7 +63,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     ".NET": SiDotnet,
     "Flask": SiFlask,
     "Django": SiDjango,
-    "REST APIs": Cloud,
+    "REST APIs": Rest,
     "SOAP APIs": Cloud,
     "AWS (EC2, Lambda, S3)": SiAmazon,
     "MongoDB": SiMongodb,
@@ -72,7 +74,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "CI/CD": SiGit,
     "Playwright": Code2,
     "BeautifulSoup": SiPython,
-    "SERP API": Cloud,
+    "SERP API": serp,
     "IBM Cloud": Cloud,
   };
   return iconMap[skill] || Cloud;
