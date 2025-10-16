@@ -157,8 +157,7 @@ const Contact = () => {
                     Let's Collaborate
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Open to{" "} innovative projects, technical collaborations, and problem-solving opportunities.
-                    </span>
+                    Open to innovative projects, technical collaborations, and problem-solving opportunities.
                   </p>
                 </div>
 
