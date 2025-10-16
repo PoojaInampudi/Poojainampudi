@@ -33,7 +33,7 @@ const skillCategories = [
   {
     title: "Tools & DevOps",
     icon: Wrench,
-    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup", "SERP API"],
+    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup"],
   },
 ];
 
@@ -175,13 +175,28 @@ function SkillCard({ category, index }: { category: Category; index: number }) {
                   } opacity-90 rounded-lg`}
                 />
 
-                <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
+                {/* <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
                   {typeof SkillIcon === 'string' ? (
                     <img src={SkillIcon} alt={skill} className="w-5 h-5 object-contain invert" />
                   ) : (
                     <SkillIcon size={20} color="white" />
                   )}
-                </div>
+                </div> */}
+                <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
+                {typeof SkillIcon === "string" ? (
+                  <div className="relative">
+                    <img
+                      src={SkillIcon}
+                      alt={skill}
+                      className="w-5 h-5 object-contain invert brightness-200 contrast-125 saturate-0 opacity-90"
+                    />
+                    <div className="absolute inset-0 bg-white/10 rounded"></div>
+                  </div>
+                ) : (
+                  <SkillIcon size={20} color="white" />
+                )}
+              </div>
+
               </motion.div>
             );
           })}
