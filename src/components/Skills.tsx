@@ -7,6 +7,7 @@ import {
   SiGit, SiBitbucket, SiJenkins
 } from "react-icons/si";
 import { Cloud, Code2, Database, Wrench, Workflow, Coffee } from "lucide-react";
+import salesforceCPQIcon from "@/assets/salesforce-cpq-icon.png";
 
 const skillCategories = [
   {
@@ -33,9 +34,9 @@ const skillCategories = [
 
 type Category = { title: string; icon: ComponentType<SVGProps<SVGSVGElement>>; skills: string[] };
 
-function getSkillIcon(skill: string): ComponentType<any> {
-  const iconMap: Record<string, ComponentType<any>> = {
-    "Salesforce CPQ": SiSalesforce,
+function getSkillIcon(skill: string): ComponentType<any> | string {
+  const iconMap: Record<string, ComponentType<any> | string> = {
+    "Salesforce CPQ": salesforceCPQIcon,
     "Health Cloud": SiSalesforce,
     "OmniStudio": SiSalesforce,
     "Apex": Code2,
@@ -172,7 +173,11 @@ function SkillCard({ category, index }: { category: Category; index: number }) {
                 />
 
                 <div className="relative z-10 w-7 h-7 text-white flex items-center justify-center">
-                  <SkillIcon size={20} color="white" />
+                  {typeof SkillIcon === 'string' ? (
+                    <img src={SkillIcon} alt={skill} className="w-5 h-5 object-contain" />
+                  ) : (
+                    <SkillIcon size={20} color="white" />
+                  )}
                 </div>
               </motion.div>
             );
