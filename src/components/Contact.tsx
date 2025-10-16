@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Github, Linkedin, MessageSquare } from "lucide-react";
+import { Mail, MapPin, Github, Linkedin, MessageSquare, Download } from "lucide-react";
 
 const Contact = () => {
   return (
@@ -96,17 +96,32 @@ const Contact = () => {
                   </Button>
                 </a>
               </div>
+              <div className="grid grid-cols-1 gap-3">
+                <Button
+                  asChild
+                  size="lg"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-95 text-primary-foreground shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold btn-shine"
+                >
+                  <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center justify-center gap-2">
+                    <Mail className="h-5 w-5" />
+                    Send Email
+                  </a>
+                </Button>
 
-              <Button
-                asChild
-                size="lg"
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-primary-foreground shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold"
-              >
-                <a href="mailto:inampudipooja.work@gmail.com" className="flex items-center justify-center gap-2">
-                  <Mail className="h-5 w-5" />
-                  Send Email
+                <a
+                  href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button
+                    variant="default"
+                    className="w-full bg-white/5 border-2 border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-sm btn-shine pulse-ring overflow-hidden relative"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Resume
+                  </Button>
                 </a>
-              </Button>
+              </div>
             </div>
           </div>
         </Card>

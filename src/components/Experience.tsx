@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Building2, Calendar } from "lucide-react";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
@@ -100,9 +101,6 @@ const experiences = [
   {
     company: "Cognizant",
     role: "Full Stack Developer",
-    location: "India",
-    period: "Jun 2021 - Jun 2022",
-    color: "accent",
     skills: ["JavaScript", "Java", "Python", "MS SQL", "HTML/CSS", "RESTful APIs"],
     achievements: [
       "Designed and developed full-stack web applications",
@@ -114,18 +112,15 @@ const experiences = [
   },
 ];
 
-const allSkills = {
-  salesforce: ["Salesforce CPQ", "Health Cloud", "OmniStudio", "Apex", "Lightning Web Components", "SOQL", "Flows", "Agent Force", "Conga CPQ", "Data Cloud", "Lightning Aura Components"],
-  frontend: ["React.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"],
-  backend: ["Node.js", "Python", "Java", "C#", ".NET", "Flask", "Django", "RESTful APIs", "SOAP APIs", "MongoDB", "MS SQL"],
-  cloud: ["AWS (EC2, Lambda, S3)", "IBM Cloud"],
-  tools: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup", "SERP API"],
-};
-
 const Experience = () => {
   return (
-    <section className="py-20 px-4 bg-muted/30 scroll-mt-16" id="experience">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-20 px-4 bg-muted/30 scroll-mt-16 relative overflow-hidden" id="experience">
+      {/* Decorative background lines */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-transparent via-primary/20 to-transparent pointer-events-none" />
+      <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent pointer-events-none" />
+      <div className="absolute bottom-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 text-secondary">
           Professional Experience & Skills
         </h2>
@@ -134,25 +129,20 @@ const Experience = () => {
           Full-stack expertise across Salesforce ecosystem, modern web technologies, and cloud platforms
         </p>
 
-        {/* Timeline Layout */}
+        {/* Timeline */}
         <div className="relative">
-          {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20 -translate-x-1/2" />
-          
-          <div className="space-y-12">
+
+          <div className="space-y-16">
             {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className="relative grid md:grid-cols-2 gap-8"
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-primary border-4 border-background shadow-lg z-10 animate-pulse" />
-                
-                {/* Content - Left side for even indices, right side for odd */}
+              <div key={index} className="relative grid md:grid-cols-2 gap-8">
+                <div className="absolute left-4 md:left-1/2 w-6 h-6 -translate-x-1/2 rounded-full bg-gradient-to-r from-primary via-accent to-primary/50 border-4 border-background shadow-[0_0_20px_var(--primary)] z-10" />
+
                 {index % 2 === 0 ? (
                   <>
                     <div className="ml-12 md:ml-0">
-                      <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
+                      <div className="relative p-6 md:p-8 rounded-2xl border border-primary/20 bg-gradient-to-br from-background/60 via-background/30 to-background/10 backdrop-blur-md hover:border-primary/60 hover:shadow-[0_0_30px_-10px_var(--primary)] transition-all duration-500">
+                        {/* Removed the left connecting line */}
                         <div className="flex flex-col gap-4">
                           <div>
                             <div className="flex items-center gap-2 mb-2">
@@ -202,14 +192,15 @@ const Experience = () => {
                   <>
                     <div className="hidden md:block" />
                     <div className="ml-12 md:ml-0">
-                      <div className="p-6 md:p-8 border-l-4 border-primary/50 bg-gradient-to-r from-primary/5 to-transparent hover:from-primary/10 transition-all duration-500">
+                      <div className="relative p-6 md:p-8 rounded-2xl border border-accent/20 bg-gradient-to-br from-background/60 via-background/30 to-background/10 backdrop-blur-md hover:border-accent/60 hover:shadow-[0_0_30px_-10px_var(--accent)] transition-all duration-500">
+                        {/* Removed the right connecting line */}
                         <div className="flex flex-col gap-4">
                           <div>
                             <div className="flex items-center gap-2 mb-2">
-                              <Building2 className="h-5 w-5 text-primary" />
+                              <Building2 className="h-5 w-5 text-accent" />
                               <h3 className="text-2xl font-bold text-secondary">{exp.company}</h3>
                             </div>
-                            <p className="text-xl font-semibold text-primary mb-1">{exp.role}</p>
+                            <p className="text-xl font-semibold text-accent mb-1">{exp.role}</p>
                             <div className="flex items-center gap-2 text-muted-foreground">
                               <Calendar className="h-4 w-4" />
                               <span className="text-sm">{exp.period}</span>
@@ -224,7 +215,7 @@ const Experience = () => {
                                 <Badge
                                   key={skillIndex}
                                   variant="secondary"
-                                  className="bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
+                                  className="bg-accent/10 text-accent hover:bg-accent/20 border border-accent/20"
                                 >
                                   {skill}
                                 </Badge>
@@ -237,7 +228,7 @@ const Experience = () => {
                             <ul className="space-y-2">
                               {exp.achievements.map((achievement, achievementIndex) => (
                                 <li key={achievementIndex} className="flex items-start text-muted-foreground">
-                                  <span className="text-primary mr-2 mt-1">▸</span>
+                                  <span className="text-accent mr-2 mt-1">▸</span>
                                   <span className="text-sm">{achievement}</span>
                                 </li>
                               ))}

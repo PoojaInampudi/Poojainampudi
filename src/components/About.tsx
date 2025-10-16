@@ -148,16 +148,15 @@ const About = () => {
           className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 p-12 rounded-[3rem] text-center shadow-2xl backdrop-blur-lg border border-primary/20"
         >
           <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-20 h-20 bg-primary/20 blur-3xl rounded-full" />
-          <h3 className="text-4xl font-bold text-secondary mb-6">Professional Journey 🚀</h3>
-          <p className="text-muted-foreground leading-relaxed text-lg max-w-4xl mx-auto">
-            I’m a <span className="text-primary font-semibold">Founding Engineer</span> at TraxContents,
-            where I built a scalable SaaS platform from the ground up and earned an equity stake.
-            My journey bridges <span className="text-accent font-semibold">Salesforce CPQ, Data Cloud, and Full-Stack Development</span> —
-            combining business automation with elegant front-end design.  
-            Currently at <span className="text-primary font-semibold">Forsys Inc</span>, I focus on delivering
-            advanced Salesforce customizations using <span className="font-semibold text-secondary">Apex, Flows, and Conga</span>.  
-            Beyond work, I’m driven by innovation, problem-solving, and the pursuit of clean, impactful software.
-          </p>
+          <h3 className="text-4xl font-bold text-secondary mb-6">Professional Journey</h3>
+            <p className="text-muted-foreground leading-relaxed text-lg max-w-4xl mx-auto">
+              I’m a <b>full-stack engineer</b> who loves transforming <b>complex ideas</b> into seamless digital experiences.
+              I build <b>scalable applications</b> from the ground up, blending robust <b>backend architecture</b> with intuitive,
+              engaging <b>front-end designs</b>. From designing <b>efficient workflows</b> to optimizing <b>performance</b>,
+              I focus on creating software that’s not only <b>functional</b> but also <b>elegant</b> and <b>maintainable</b>.
+              Driven by <b>curiosity</b> and a passion for <b>problem-solving</b>, I thrive on turning <b>challenges</b> into
+              <b>innovative solutions</b> that make a real impact for <b>users</b> and <b>businesses</b> alike.
+            </p>
         </motion.div>
       </div>
     </section>

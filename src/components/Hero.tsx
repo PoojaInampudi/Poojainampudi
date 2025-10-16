@@ -8,7 +8,6 @@ import avatarIllustration from "@/assets/Avatar.png";
 const roles = [
   "Software Developer",
   "Salesforce CPQ Specialist",
-  "OmniStudio Architect",
   "Full-Stack Engineer",
 ];
 
@@ -73,7 +72,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDE0YzAtMy4zMTQgMi42ODYtNiA2LTZzNi0yLjY4NiA2LTYtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYtMi42ODYgNi02IDZ6TTAgMTRjMC0zLjMxNCAyLjY4Ni02IDYtNnM2LTIuNjg2IDYtNi0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNi0yLjY4NiA2LTYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
 
       {/* Floating light orbs */}
-      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"
           style={{ top: "15%", left: "10%", animationDelay: "0s", animationDuration: "18s" }}
@@ -82,7 +81,7 @@ const Hero = () => {
           className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"
           style={{ bottom: "10%", right: "10%", animationDelay: "5s", animationDuration: "22s" }}
         />
-      </div> */}
+      </div>
 
       {/* Illustration background */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3 opacity-15 pointer-events-none hidden lg:block">
@@ -112,19 +111,19 @@ const Hero = () => {
             <div className="relative max-w-3xl">
               <div className="absolute -inset-1 bg-gradient-to-br from-background/30 to-card/20 rounded-2xl blur-lg opacity-60 -z-10" />
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed p-6 rounded-2xl">
-                I’m a seasoned technologist specializing in <strong className="text-secondary">Salesforce CPQ</strong> and <strong className="text-secondary">OmniStudio</strong>. I design and deliver enterprise-grade systems with robust integrations, automated pricing engines, and elegant UX.
+                I build end-to-end web applications that combine <strong className="font-semibold text-secondary">sleek frontends</strong>, <strong className="font-semibold text-secondary">robust backends</strong>, and <strong className="font-semibold text-secondary">seamless user experiences</strong>.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
               <div className="flex flex-wrap items-center gap-3">
                 {[
-                  "Salesforce",
-                  "CPQ",
-                  "OmniStudio",
                   "React",
                   "TypeScript",
                   "Node.js",
+                  "Salesforce",
+                  "CPQ",
+                  "Python"
                 ].map((s) => (
                   <span
                     key={s}
@@ -151,12 +150,13 @@ const Hero = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="px-6 py-3 rounded-full border border-primary/60 bg-card/50 text-primary hover:bg-primary/5 transition-colors duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/20"
+                  className="px-6 py-3 rounded-full border border-primary/60 bg-card/50 text-primary hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25 btn-shine pulse-ring overflow-hidden relative"
                 >
                   <a
-                    href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view?usp=sharing"
+                    href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Open Pooja Inampudi's resume (Google Drive)"
                     className="flex items-center gap-2"
                   >
                     <Download className="h-4 w-4" />
@@ -206,9 +206,9 @@ const Hero = () => {
                 <div className="text-base md:text-lg font-semibold text-secondary">
                   Austin, Texas
                 </div>
-                <div className="text-sm md:text-base text-primary font-medium tracking-wide">
-                  🌎 Open to Relocate
-                </div>
+                {/* <div className="text-sm md:text-base text-muted-foreground font-normal tracking-wide bg-transparent">
+                  Open to Relocate
+                </div> */}
             </div>
           </div>
 
@@ -237,8 +237,44 @@ const Hero = () => {
           animation: blink 1s steps(2, start) infinite;
         }
 
+        /* Button shine and pulse for Resume buttons */
+        .btn-shine::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -75%;
+          width: 50%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
+          transform: skewX(-20deg);
+          filter: blur(6px);
+          pointer-events: none;
+          animation: shine 2400ms linear infinite;
+        }
+
+        @keyframes shine {
+          0% { left: -75%; }
+          100% { left: 125%; }
+        }
+
+        @keyframes pulseRing {
+          0% {
+            box-shadow: 0 0 0 0 rgba(99,102,241, 0.18);
+          }
+          70% {
+            box-shadow: 0 0 0 12px rgba(99,102,241, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(99,102,241, 0);
+          }
+        }
+
+        .pulse-ring {
+          animation: pulseRing 2.5s ease-out infinite;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-          .animate-float, .animate-cursor { animation: none !important; }
+          .animate-float, .animate-cursor, .btn-shine::after, .pulse-ring { animation: none !important; }
           * { transition: none !important; }
         }
       `}</style>

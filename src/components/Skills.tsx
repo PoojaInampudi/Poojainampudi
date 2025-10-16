@@ -18,7 +18,7 @@ const skillCategories = [
   {
     title: "Salesforce",
     icon: SiSalesforce,
-    skills: ["Salesforce CPQ", "Health Cloud", "OmniStudio", "Apex", "LWC", "SOQL", "Flows", "Agent Force", "Conga CPQ", "Data Cloud"],
+    skills: ["Salesforce CPQ", "OmniStudio", "Apex", "LWC", "SOQL", "Flows", "Agent Force", "Conga CPQ", "Data Cloud"],
   },
   {
     title: "Frontend",
