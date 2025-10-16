@@ -13,7 +13,7 @@ import lwcIcon from "@/assets/LWC.png";
 import agentforceIcon from "@/assets/Agentforce.png";
 import Rest from "@/assets/Rest.png";
 import serp from "@/assets/Serp.png";
-import { FaRobot } from "react-icons/fa";
+import { FaRobot,FaDocker } from "react-icons/fa";
 const skillCategories = [
   {
     title: "Salesforce",
@@ -33,7 +33,7 @@ const skillCategories = [
   {
     title: "Tools & DevOps",
     icon: Wrench,
-    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup"],
+    skills: ["Git", "Bitbucket", "Jenkins", "CI/CD", "Playwright", "BeautifulSoup","Docker"],
   },
 ];
 
@@ -77,6 +77,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "BeautifulSoup": SiPython,
     "SERP API": serp,
     "IBM Cloud": Cloud,
+    "Docker": FaDocker,
   };
   return iconMap[skill] || Cloud;
 }

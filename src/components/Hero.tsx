@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Mail, Download, MapPin, Calendar, Briefcase, Users } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import avatarIllustration from "@/assets/Avatar.png";
+
 
 const roles = [
   "Software Developer",
@@ -71,7 +73,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDE0YzAtMy4zMTQgMi42ODYtNiA2LTZzNi0yLjY4NiA2LTYtMi42ODYtNi02LTYtNiAyLjY4Ni02IDYtMi42ODYgNi02IDZ6TTAgMTRjMC0zLjMxNCAyLjY4Ni02IDYtNnM2LTIuNjg2IDYtNi0yLjY4Ni02LTYtNi02IDIuNjg2LTYgNi0yLjY4NiA2LTYgNnoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-30" />
 
       {/* Floating light orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"
           style={{ top: "15%", left: "10%", animationDelay: "0s", animationDuration: "18s" }}
@@ -80,7 +82,9 @@ const Hero = () => {
           className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float"
           style={{ bottom: "10%", right: "10%", animationDelay: "5s", animationDuration: "22s" }}
         />
-      </div>
+      </div> */}
+
+      {/* Illustration background */}
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-10 max-w-6xl mx-auto">
@@ -166,8 +170,6 @@ const Hero = () => {
                 </Button>
               </div>
             </div>
-
-            {/* stats removed per request */}
           </div>
 
           {/* Profile Section */}
