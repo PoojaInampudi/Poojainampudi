@@ -13,6 +13,7 @@ import lwcIcon from "@/assets/LWC.png";
 import agentforceIcon from "@/assets/Agentforce.png";
 import Rest from "@/assets/Rest.png";
 import serp from "@/assets/Serp.png";
+import { FaRobot } from "react-icons/fa";
 const skillCategories = [
   {
     title: "Salesforce",
@@ -46,7 +47,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "LWC": lwcIcon,
     "SOQL": Database,
     "Flows": Workflow,
-    "Agent Force": agentforceIcon,
+    "Agent Force": FaRobot,
     "Conga CPQ": Cloud,
     "Data Cloud": SiSalesforce,
     "React.js": SiReact,
