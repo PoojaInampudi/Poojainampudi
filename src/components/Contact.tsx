@@ -19,30 +19,6 @@ const Contact = () => {
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
-      
-      {/* Floating sparkles */}
-      <motion.div
-        className="absolute top-20 left-10 text-primary/30"
-        animate={{ 
-          y: [0, -20, 0],
-          rotate: [0, 180, 360],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ duration: 8, repeat: Infinity }}
-      >
-        <Sparkles className="w-6 h-6" />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-32 right-16 text-accent/30"
-        animate={{ 
-          y: [0, 20, 0],
-          rotate: [360, 180, 0],
-          opacity: [0.3, 0.6, 0.3]
-        }}
-        transition={{ duration: 10, repeat: Infinity }}
-      >
-        <Sparkles className="w-8 h-8" />
-      </motion.div>
 
       <div className="container mx-auto max-w-5xl relative z-10">
         <motion.div 
@@ -81,12 +57,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="h-0.5 w-20 bg-gradient-to-r from-transparent via-primary to-primary rounded-full" />
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-            >
-              <Sparkles className="h-5 w-5 text-primary" />
-            </motion.div>
+            <div className="h-1 w-10 bg-primary rounded-full" />
             <div className="h-0.5 w-20 bg-gradient-to-l from-transparent via-primary to-primary rounded-full" />
           </motion.div>
           
@@ -165,7 +136,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-bold text-secondary mb-2 text-lg">Location</h3>
                     <p className="text-muted-foreground">Austin, Texas, USA</p>
-                    <p className="text-sm text-primary mt-1">Available for Remote & Hybrid</p>
+                    <p className="text-sm text-primary mt-1">Open to Relocate</p>
                   </div>
                 </motion.div>
               </div>
@@ -280,11 +251,9 @@ const Contact = () => {
           transition={{ delay: 0.5 }}
         >
           <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-card/50 border border-border backdrop-blur-sm">
-            <Sparkles className="h-4 w-4 text-primary" />
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Pooja Inampudi. All rights reserved.
             </p>
-            <Sparkles className="h-4 w-4 text-accent" />
           </div>
         </motion.div>
       </div>
