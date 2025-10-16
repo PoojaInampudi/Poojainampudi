@@ -8,27 +8,27 @@ const Contact = () => {
     <section className="relative py-20 px-4 overflow-hidden scroll-mt-16" id="contact">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-primary/5 to-background" />
-      <motion.div 
+      <motion.div
         className="absolute inset-0 opacity-30"
         animate={{
           background: [
-            'radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.15) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 50%)',
+            "radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.15) 0%, transparent 50%)",
+            "radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 50%)",
           ],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
       />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        <motion.div 
+        <motion.div
           className="text-center mb-16 space-y-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.div 
+          <motion.div
             className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md shadow-[0_0_20px_-5px_var(--primary)]"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
@@ -36,20 +36,23 @@ const Contact = () => {
             <MessageSquare className="h-5 w-5 text-primary animate-pulse" />
             <span className="text-sm font-semibold text-primary tracking-wider">LET'S CONNECT</span>
           </motion.div>
-          
-          <motion.h2 
+
+          <motion.h2
             className="text-5xl md:text-7xl font-bold"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-gradient-flow" style={{ backgroundSize: '200% auto' }}>
+            <span
+              className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary animate-gradient-flow"
+              style={{ backgroundSize: "200% auto" }}
+            >
               Get In Touch
             </span>
           </motion.h2>
-          
-          <motion.div 
+
+          <motion.div
             className="flex items-center justify-center gap-3"
             initial={{ opacity: 0, width: 0 }}
             whileInView={{ opacity: 1, width: "auto" }}
@@ -60,15 +63,16 @@ const Contact = () => {
             <div className="h-1 w-10 bg-primary rounded-full" />
             <div className="h-0.5 w-20 bg-gradient-to-l from-transparent via-primary to-primary rounded-full" />
           </motion.div>
-          
-          <motion.p 
+
+          <motion.p
             className="text-muted-foreground max-w-2xl mx-auto text-lg"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Open to <span className="text-primary font-semibold">new opportunities</span>, collaborations, and conversations about technology
+            Open to <span className="text-primary font-semibold">new opportunities</span>, collaborations, and
+            conversations about technology
           </motion.p>
         </motion.div>
 
@@ -80,27 +84,27 @@ const Contact = () => {
         >
           <Card className="p-8 md:p-12 bg-[linear-gradient(var(--gradient-card))] border-2 border-primary/30 hover:border-primary/60 hover:shadow-[0_0_50px_-10px_var(--primary)] transition-all duration-500 overflow-hidden relative group">
             {/* Animated gradient overlay */}
-            <motion.div 
+            <motion.div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
               style={{
-                background: 'linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.08))',
+                background: "linear-gradient(135deg, hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.08))",
               }}
             />
-            
+
             {/* Floating orbs inside card */}
             <div className="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-accent/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
+
             <div className="grid md:grid-cols-2 gap-10 relative z-10">
               <div className="space-y-6">
-                <motion.div 
+                <motion.div
                   className="flex items-start gap-4 group/item"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center flex-shrink-0 shadow-lg"
                     whileHover={{ scale: 1.15, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -114,19 +118,19 @@ const Contact = () => {
                       className="text-muted-foreground hover:text-primary transition-colors break-all inline-flex items-center gap-2 group"
                     >
                       inampudipooja.work@gmail.com
-                      <Send className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                      {/* <Send className="h-4 w-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" /> */}
                     </a>
                   </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="flex items-start gap-4 group/item"
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 }}
                 >
-                  <motion.div 
+                  <motion.div
                     className="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/10 flex items-center justify-center flex-shrink-0 shadow-lg"
                     whileHover={{ scale: 1.15, rotate: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
@@ -141,7 +145,7 @@ const Contact = () => {
                 </motion.div>
               </div>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col justify-center space-y-6"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -153,10 +157,11 @@ const Contact = () => {
                     Let's Collaborate
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Available for <span className="text-primary font-semibold">Salesforce development</span>, consulting projects, and technical collaborations.
+                    Available for <span className="text-primary font-semibold">Salesforce development</span>, consulting
+                    projects, and technical collaborations.
                   </p>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-3">
                   <motion.div whileHover={{ y: -4 }} transition={{ type: "spring", stiffness: 300 }}>
                     <Button
@@ -164,11 +169,7 @@ const Contact = () => {
                       variant="outline"
                       className="w-full border-2 border-primary/30 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_-5px_var(--primary)] transition-all duration-300"
                     >
-                      <a
-                        href="https://github.com/PoojaInampudi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://github.com/PoojaInampudi" target="_blank" rel="noopener noreferrer">
                         <Github className="mr-2 h-4 w-4" />
                         GitHub
                       </a>
@@ -180,21 +181,17 @@ const Contact = () => {
                       variant="outline"
                       className="w-full border-2 border-primary/30 hover:border-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_-5px_var(--primary)] transition-all duration-300"
                     >
-                      <a
-                        href="https://linkedin.com/in/poojainampudi"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href="https://linkedin.com/in/poojainampudi" target="_blank" rel="noopener noreferrer">
                         <Linkedin className="mr-2 h-4 w-4" />
                         LinkedIn
                       </a>
                     </Button>
                   </motion.div>
                 </div>
-                
+
                 <div className="space-y-3">
-                  <motion.div 
-                    whileHover={{ scale: 1.03 }} 
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
@@ -216,8 +213,8 @@ const Contact = () => {
                     </Button>
                   </motion.div>
 
-                  <motion.div 
-                    whileHover={{ scale: 1.03 }} 
+                  <motion.div
+                    whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 400 }}
                   >
@@ -243,7 +240,7 @@ const Contact = () => {
           </Card>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -257,7 +254,7 @@ const Contact = () => {
           </div>
         </motion.div>
       </div>
-      
+
       <style>{`
         @keyframes gradient-flow {
           0%, 100% { background-position: 0% 50%; }
