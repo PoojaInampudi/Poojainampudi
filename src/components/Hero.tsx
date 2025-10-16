@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Linkedin, Mail, Download, MapPin, Calendar, Briefcase, Users } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
-import avatarIllustration from "@/assets/Avatar.png";
 
 
 const roles = [
@@ -83,14 +82,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Illustration background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-2/3 opacity-15 pointer-events-none hidden lg:block">
-        <img 
-          src={avatarIllustration} 
-          alt="" 
-          className="w-full h-full object-contain animate-float"
-        />
-      </div>
 
       <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-10 max-w-6xl mx-auto">
