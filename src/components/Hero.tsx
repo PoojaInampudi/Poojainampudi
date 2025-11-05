@@ -144,7 +144,7 @@ const Hero = () => {
                   className="px-6 py-3 rounded-full border border-primary/60 bg-card/50 text-primary hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25 btn-shine pulse-ring overflow-hidden relative"
                 >
                   <a
-                    href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
+                    href="https://drive.google.com/drive/u/0/folders/156jPDWfENjfx4XlA17iY1OkRYd0I0C35"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Open Pooja Inampudi's resume (Google Drive)"
