@@ -224,7 +224,7 @@ const Contact = () => {
                       className="w-full bg-gradient-to-r from-background/50 to-primary/5 border-2 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_-5px_var(--primary)] transition-all duration-300 font-medium"
                     >
                       <a
-                        href="https://drive.google.com/file/d/18UCiF0_7s_lfBKYU9fLUFIyk0m98TSHY/view"
+                        href="https://drive.google.com/file/d/1nViAnsD9jGjRbUDjq41brMuuU9VAcnid/view?usp=drive_link"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
