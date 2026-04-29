@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import type { ComponentType, SVGProps } from "react";
 import { 
-  SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss, 
+  SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss3, 
   SiTailwindcss, SiReact, SiNodedotjs, SiPython, SiSharp, 
   SiDotnet, SiFlask, SiDjango, SiMongodb,
   SiGit, SiBitbucket, SiJenkins
@@ -54,7 +54,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "JavaScript": SiJavascript,
     "TypeScript": SiTypescript,
     "HTML5": SiHtml5,
-    "CSS3": SiCss,
+    "CSS3": SiCss3,
     "Tailwind CSS": SiTailwindcss,
     "Aura Components": SiSalesforce,
     "Node.js": SiNodedotjs,
