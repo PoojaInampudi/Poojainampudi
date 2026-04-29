@@ -3,7 +3,7 @@ import type { ComponentType, SVGProps } from "react";
 import { 
   SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss, 
   SiTailwindcss, SiReact, SiNodedotjs, SiPython, SiSharp, 
-  SiDotnet, SiFlask, SiDjango, SiAmazonwebservices, SiMongodb,
+  SiDotnet, SiFlask, SiDjango, SiMongodb,
   SiGit, SiBitbucket, SiJenkins
 } from "react-icons/si";
 import { Cloud, Code2, Database, Wrench, Workflow, Coffee } from "lucide-react";
@@ -66,7 +66,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "Django": SiDjango,
     "REST APIs": Rest,
     "SOAP APIs": Cloud,
-    "AWS (EC2, Lambda, S3)": SiAmazonwebservices,
+    "AWS (EC2, Lambda, S3)": Cloud,
     "MongoDB": SiMongodb,
     "MS SQL": Database,
     "Git": SiGit,
