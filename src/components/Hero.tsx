@@ -137,24 +137,6 @@ const Hero = () => {
                   </a>
                 </Button>
 
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="px-6 py-3 rounded-full border border-primary/60 bg-card/50 text-primary hover:shadow-md hover:-translate-y-1 transition-transform transition-shadow duration-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary/25 btn-shine pulse-ring overflow-hidden relative"
-                >
-                  <a
-                    href="https://drive.google.com/file/d/1nViAnsD9jGjRbUDjq41brMuuU9VAcnid/view"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Open Pooja Inampudi's resume (Google Drive)"
-                    className="flex items-center gap-2"
-                  >
-                    <Download className="h-4 w-4" />
-                    Resume
-                  </a>
-                </Button>
-
                 <Button asChild variant="ghost" size="lg" className="px-4 py-2">
                   <a
                     href="https://calendly.com/inampudipooja/meet-with-pooja-inampudi"

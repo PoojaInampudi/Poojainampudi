@@ -114,7 +114,7 @@ const experiences = [
     company: "Cognizant",
     role: "Full Stack Developer",
     location: "India",
-    period: "Jan 2022 - June 2022",
+    period: "Jun 2021 - Jun 2022",
     color: "primary",
     skills: ["JavaScript", "Java", "Python", "MS SQL", "HTML/CSS", "RESTful APIs"],
     achievements: [
