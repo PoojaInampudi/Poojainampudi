@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import type { ComponentType, SVGProps } from "react";
 import { 
-  SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss3, 
+  SiSalesforce, SiJavascript, SiTypescript, SiHtml5, SiCss, 
   SiTailwindcss, SiReact, SiNodedotjs, SiPython, SiSharp, 
-  SiDotnet, SiFlask, SiDjango, SiAmazon, SiMongodb,
+  SiDotnet, SiFlask, SiDjango, SiAmazonwebservices, SiMongodb,
   SiGit, SiBitbucket, SiJenkins
 } from "react-icons/si";
 import { Cloud, Code2, Database, Wrench, Workflow, Coffee } from "lucide-react";
@@ -54,7 +54,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "JavaScript": SiJavascript,
     "TypeScript": SiTypescript,
     "HTML5": SiHtml5,
-    "CSS3": SiCss3,
+    "CSS3": SiCss,
     "Tailwind CSS": SiTailwindcss,
     "Aura Components": SiSalesforce,
     "Node.js": SiNodedotjs,
@@ -66,7 +66,7 @@ function getSkillIcon(skill: string): ComponentType<any> | string {
     "Django": SiDjango,
     "REST APIs": Rest,
     "SOAP APIs": Cloud,
-    "AWS (EC2, Lambda, S3)": SiAmazon,
+    "AWS (EC2, Lambda, S3)": SiAmazonwebservices,
     "MongoDB": SiMongodb,
     "MS SQL": Database,
     "Git": SiGit,
